@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+	<component id="rod_template">
+		<param name="x" type="real" local="true" d1="1" d2="1" dynamics="any" />
+		<param name="c" type="real" local="false" d1="1" d2="1" dynamics="const" />
+		<param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" />
+		<param name="add" type="label" local="false" />
+		<param name="remove" type="label" local="false" />
+		<param name="recovery" type="label" local="false" />
+		<location id="1" name="out">
+			<invariant>x&lt;=10 </invariant>
+			<flow>x'== c &amp; t' == 1</flow>
+		</location>
+		<location id="2" name="in">
+			<invariant>x&lt;=10000</invariant>
+			<flow>x'== c &amp; t' == 1</flow>
+		</location>
+		<location id="3" name="recover">
+			<invariant>x&lt;=10000</invariant>
+			<flow>x'== c &amp; t' == 1</flow>
+		</location>
+		<transition source="1" target="2">
+			<label>add</label>
+			<guard>x&gt;=1</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="2" target="3">
+			<label>remove</label>
+		</transition>
+		<transition source="3" target="1">
+			<label>recovery</label>
+		</transition>
+	</component>
+	<component id="controller_template">
+		<param name="x" type="real" local="true" d1="1" d2="1" dynamics="any" />
+		<param name="c" type="real" local="false" d1="1" d2="1" dynamics="const" />
+		<param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" />
+		<param name="add_1" type="label" local="false" />
+		<param name="remove_1" type="label" local="false" />
+		<param name="add_2" type="label" local="false" />
+		<param name="remove_2" type="label" local="false" />
+		<param name="add_3" type="label" local="false" />
+		<param name="remove_3" type="label" local="false" />
+		<param name="add_4" type="label" local="false" />
+		<param name="remove_4" type="label" local="false" />
+		<param name="add_5" type="label" local="false" />
+		<param name="remove_5" type="label" local="false" />
+		<param name="add_6" type="label" local="false" />
+		<param name="remove_6" type="label" local="false" />
+		<param name="add_7" type="label" local="false" />
+		<param name="remove_7" type="label" local="false" />
+		<param name="add_8" type="label" local="false" />
+		<param name="remove_8" type="label" local="false" />
+		<param name="add_9" type="label" local="false" />
+		<param name="remove_9" type="label" local="false" />
+		<param name="add_10" type="label" local="false" />
+		<param name="remove_10" type="label" local="false" />
+		<location id="1" name="rod_0">
+			<invariant>x&lt;=16.1</invariant>
+			<flow>x'== c &amp; t' == 1</flow>
+		</location>
+		<location id="2" name="rod_1">
+			<invariant>x&lt;=5.9</invariant>
+			<flow>x'== c &amp; t' == 1</flow>
+		</location>
+		<location id="3" name="rod_2">
+			<invariant>x&lt;=5.9</invariant>
+			<flow>x'== c &amp; t' == 1</flow>
+		</location>
+		<location id="4" name="rod_3">
+			<invariant>x&lt;=5.9</invariant>
+			<flow>x'== c &amp; t' == 1</flow>
+		</location>
+		<location id="5" name="rod_4">
+			<invariant>x&lt;=5.9</invariant>
+			<flow>x'== c &amp; t' == 1</flow>
+		</location>
+		<location id="6" name="rod_5">
+			<invariant>x&lt;=5.9</invariant>
+			<flow>x'== c &amp; t' == 1</flow>
+		</location>
+		<location id="7" name="rod_6">
+			<invariant>x&lt;=5.9</invariant>
+			<flow>x'== c &amp; t' == 1</flow>
+		</location>
+		<location id="8" name="rod_7">
+			<invariant>x&lt;=5.9</invariant>
+			<flow>x'== c &amp; t' == 1</flow>
+		</location>
+		<location id="9" name="rod_8">
+			<invariant>x&lt;=5.9</invariant>
+			<flow>x'== c &amp; t' == 1</flow>
+		</location>
+		<location id="10" name="rod_9">
+			<invariant>x&lt;=5.9</invariant>
+			<flow>x'== c &amp; t' == 1</flow>
+		</location>
+		<location id="11" name="rod_10">
+			<invariant>x&lt;=5.9</invariant>
+			<flow>x'== c &amp; t' == 1</flow>
+		</location>
+		<transition source="1" target="2">
+			<label>add_1</label>
+			<guard>x&gt;=16 &amp; x&lt;=16.1</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="1" target="3">
+			<label>add_2</label>
+			<guard>x&gt;=16 &amp; x&lt;=16.1</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="1" target="4">
+			<label>add_3</label>
+			<guard>x&gt;=16 &amp; x&lt;=16.1</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="1" target="5">
+			<label>add_4</label>
+			<guard>x&gt;=16 &amp; x&lt;=16.1</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="1" target="6">
+			<label>add_5</label>
+			<guard>x&gt;=16 &amp; x&lt;=16.1</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="1" target="7">
+			<label>add_6</label>
+			<guard>x&gt;=16 &amp; x&lt;=16.1</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="1" target="8">
+			<label>add_7</label>
+			<guard>x&gt;=16 &amp; x&lt;=16.1</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="1" target="9">
+			<label>add_8</label>
+			<guard>x&gt;=16 &amp; x&lt;=16.1</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="1" target="10">
+			<label>add_9</label>
+			<guard>x&gt;=16 &amp; x&lt;=16.1</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="1" target="11">
+			<label>add_10</label>
+			<guard>x&gt;=16 &amp; x&lt;=16.1</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="2" target="1">
+			<label>remove_1</label>
+			<guard>x&gt;=5 &amp; x&lt;=5.9</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="3" target="1">
+			<label>remove_2</label>
+			<guard>x&gt;=5 &amp; x&lt;=5.9</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="4" target="1">
+			<label>remove_3</label>
+			<guard>x&gt;=5 &amp; x&lt;=5.9</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="5" target="1">
+			<label>remove_4</label>
+			<guard>x&gt;=5 &amp; x&lt;=5.9</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="6" target="1">
+			<label>remove_5</label>
+			<guard>x&gt;=5 &amp; x&lt;=5.9</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="7" target="1">
+			<label>remove_6</label>
+			<guard>x&gt;=5 &amp; x&lt;=5.9</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="8" target="1">
+			<label>remove_7</label>
+			<guard>x&gt;=5 &amp; x&lt;=5.9</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="9" target="1">
+			<label>remove_8</label>
+			<guard>x&gt;=5 &amp; x&lt;=5.9</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="10" target="1">
+			<label>remove_9</label>
+			<guard>x&gt;=5 &amp; x&lt;=5.9</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="11" target="1">
+			<label>remove_10</label>
+			<guard>x&gt;=5 &amp; x&lt;=5.9</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+	</component>
+	<component id="system">
+		
+		<param name="add_1" type="label" local="false" />
+		<param name="remove_1" type="label" local="false" />
+		<param name="recovery_1" type="label" local="false" />
+		
+		<param name="add_2" type="label" local="false" />
+		<param name="remove_2" type="label" local="false" />
+		<param name="recovery_2" type="label" local="false" />
+		
+		<param name="add_3" type="label" local="false" />
+		<param name="remove_3" type="label" local="false" />
+		<param name="recovery_3" type="label" local="false" />
+		
+		<param name="add_4" type="label" local="false" />
+		<param name="remove_4" type="label" local="false" />
+		<param name="recovery_4" type="label" local="false" />
+		
+		<param name="add_5" type="label" local="false" />
+		<param name="remove_5" type="label" local="false" />
+		<param name="recovery_5" type="label" local="false" />
+		
+		<param name="add_6" type="label" local="false" />
+		<param name="remove_6" type="label" local="false" />
+		<param name="recovery_6" type="label" local="false" />
+		
+		<param name="add_7" type="label" local="false" />
+		<param name="remove_7" type="label" local="false" />
+		<param name="recovery_7" type="label" local="false" />
+		
+		<param name="add_8" type="label" local="false" />
+		<param name="remove_8" type="label" local="false" />
+		<param name="recovery_8" type="label" local="false" />
+
+		<param name="add_9" type="label" local="false" />
+		<param name="remove_9" type="label" local="false" />
+		<param name="recovery_9" type="label" local="false" />
+
+		<param name="add_10" type="label" local="false" />
+		<param name="remove_10" type="label" local="false" />
+		<param name="recovery_10" type="label" local="false" />
+
+		<param name="c" type="real" local="false" d1="1" d2="1" dynamics="const" />
+		<param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" />
+		<bind component="rod_template" as="rod_1">
+			
+			<map key="add">add_1</map>
+			<map key="remove">remove_1</map>
+			<map key="c">c</map>
+			<map key="t">t</map>
+			<map key="recovery">recovery_1</map>
+		</bind>
+		<bind component="rod_template" as="rod_2">
+			
+			<map key="add">add_2</map>
+			<map key="remove">remove_2</map>
+			<map key="c">c</map>
+			<map key="t">t</map>
+			<map key="recovery">recovery_2</map>
+		</bind>
+		<bind component="rod_template" as="rod_3">
+			
+			<map key="add">add_3</map>
+			<map key="remove">remove_3</map>
+			<map key="c">c</map>
+			<map key="t">t</map>
+			<map key="recovery">recovery_3</map>
+		</bind>
+		<bind component="rod_template" as="rod_4">
+			
+			<map key="add">add_4</map>
+			<map key="remove">remove_4</map>
+			<map key="c">c</map>
+			<map key="t">t</map>
+			<map key="recovery">recovery_4</map>
+		</bind>
+		<bind component="rod_template" as="rod_5">
+			
+			<map key="add">add_5</map>
+			<map key="remove">remove_5</map>
+			<map key="c">c</map>
+			<map key="t">t</map>
+			<map key="recovery">recovery_5</map>
+		</bind>
+		<bind component="rod_template" as="rod_6">
+			
+			<map key="add">add_6</map>
+			<map key="remove">remove_6</map>
+			<map key="recovery">recovery_6</map>
+			<map key="c">c</map>
+			<map key="t">t</map>
+		</bind>
+		<bind component="rod_template" as="rod_7">
+			
+			<map key="add">add_7</map>
+			<map key="remove">remove_7</map>
+			<map key="recovery">recovery_7</map>
+			<map key="c">c</map>
+			<map key="t">t</map>
+		</bind>
+		<bind component="rod_template" as="rod_8">
+			
+			<map key="add">add_8</map>
+			<map key="remove">remove_8</map>
+			<map key="recovery">recovery_8</map>
+			<map key="c">c</map>
+			<map key="t">t</map>
+		</bind>
+		<bind component="rod_template" as="rod_9">
+			
+			<map key="add">add_9</map>
+			<map key="remove">remove_9</map>
+			<map key="recovery">recovery_9</map>
+			<map key="c">c</map>
+			<map key="t">t</map>
+		</bind>
+		<bind component="rod_template" as="rod_10">
+			
+			<map key="add">add_10</map>
+			<map key="remove">remove_10</map>
+			<map key="recovery">recovery_10</map>
+			<map key="c">c</map>
+			<map key="t">t</map>
+		</bind>
+		<bind component="controller_template" as="controller">
+			
+			<map key="add_1">add_1</map>
+			<map key="remove_1">remove_1</map>
+			<map key="add_2">add_2</map>
+			<map key="remove_2">remove_2</map>
+			<map key="add_3">add_3</map>
+			<map key="remove_3">remove_3</map>
+			<map key="add_4">add_4</map>
+			<map key="remove_4">remove_4</map>
+			<map key="add_5">add_5</map>
+			<map key="remove_5">remove_5</map>
+			<map key="add_6">add_6</map>
+			<map key="remove_6">remove_6</map>
+			<map key="add_7">add_7</map>
+			<map key="remove_7">remove_7</map>
+			<map key="add_8">add_8</map>
+			<map key="remove_8">remove_8</map>
+			<map key="add_9">add_9</map>
+			<map key="remove_9">remove_9</map>
+			<map key="add_10">add_10</map>
+			<map key="remove_10">remove_10</map>
+			<map key="c">c</map>
+			<map key="t">t</map>
+		</bind>
+	</component>
+</sspaceex>

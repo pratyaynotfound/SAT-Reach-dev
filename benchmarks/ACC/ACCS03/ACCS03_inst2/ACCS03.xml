@@ -1,0 +1,522 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" math="SpaceEx" version="0.2">
+  <component id="ACCS03_sys">
+    <note>Created by Hyst v1.6
+Hybrid Automaton in SpaceEx
+Converted from file: /home/iacs/tools/hyst/src/ACC/ACC03/originalACC/ACCS03.xml
+Command Line arguments: -tool spaceex "" -passes flatten "" -debug -output /home/iacs/tools/hyst/src/ACC/ACC03/flatten/ACCS05.xml -input /home/iacs/tools/hyst/src/ACC/ACC03/originalACC/ACCS03.xml /home/iacs/tools/hyst/src/ACC/ACC03/originalACC/ACCS03.cfg</note>
+    <param controlled="true" d1="1" d2="1" dynamics="any" local="false" name="x0" type="real"/>
+    <param controlled="true" d1="1" d2="1" dynamics="any" local="false" name="x1" type="real"/>
+    <param controlled="true" d1="1" d2="1" dynamics="any" local="false" name="x2" type="real"/>
+    <param controlled="true" d1="1" d2="1" dynamics="any" local="false" name="c1" type="real"/>
+    <param controlled="true" d1="1" d2="1" dynamics="any" local="false" name="c2" type="real"/>
+    <param controlled="true" d1="1" d2="1" dynamics="any" local="false" name="c3" type="real"/>
+    <param controlled="true" d1="1" d2="1" dynamics="any" local="false" name="t" type="real"/>
+    <param controlled="true" d1="1" d2="1" dynamics="any" local="false" name="autd101" type="real"/>
+    <param controlled="true" d1="1" d2="1" dynamics="any" local="false" name="autd201" type="real"/>
+    <location id="1" name="crs_crs_crs">
+      <invariant>autd101 &gt;= 1.0 &amp;
+ autd201 &gt;= 1.0</invariant>
+      <flow>x0' == 36.0 &amp;
+ t' == 1.0 &amp;
+ x1' == c1 &amp;
+ autd101' == c2 &amp;
+ x2' == c1 &amp;
+ autd201' == c2</flow>
+    </location>
+    <location id="2" name="crs_crs_rcv">
+      <invariant>autd101 &gt;= 1.0 &amp;
+ autd201 &lt;= 3.0</invariant>
+      <flow>x0' == 36.0 &amp;
+ t' == 1.0 &amp;
+ x1' == c1 &amp;
+ autd101' == c2 &amp;
+ x2' == c1 &amp;
+ autd201' == c3</flow>
+    </location>
+    <location id="3" name="crs_crs_crash">
+      <invariant>autd101 &gt;= 1.0</invariant>
+      <flow>x0' == 36.0 &amp;
+ t' == 1.0 &amp;
+ x1' == c1 &amp;
+ autd101' == c2 &amp;
+ x2' == 0.0 &amp;
+ autd201' == 0.0</flow>
+    </location>
+    <location id="4" name="crs_rcv_crs">
+      <invariant>autd101 &lt;= 3.0 &amp;
+ autd201 &gt;= 1.0</invariant>
+      <flow>x0' == 36.0 &amp;
+ t' == 1.0 &amp;
+ x1' == c1 &amp;
+ autd101' == c3 &amp;
+ x2' == c1 &amp;
+ autd201' == c2</flow>
+    </location>
+    <location id="5" name="crs_rcv_rcv">
+      <invariant>autd101 &lt;= 3.0 &amp;
+ autd201 &lt;= 3.0</invariant>
+      <flow>x0' == 36.0 &amp;
+ t' == 1.0 &amp;
+ x1' == c1 &amp;
+ autd101' == c3 &amp;
+ x2' == c1 &amp;
+ autd201' == c3</flow>
+    </location>
+    <location id="6" name="crs_rcv_crash">
+      <invariant>autd101 &lt;= 3.0</invariant>
+      <flow>x0' == 36.0 &amp;
+ t' == 1.0 &amp;
+ x1' == c1 &amp;
+ autd101' == c3 &amp;
+ x2' == 0.0 &amp;
+ autd201' == 0.0</flow>
+    </location>
+    <location id="7" name="crs_crash_crs">
+      <invariant>autd201 &gt;= 1.0</invariant>
+      <flow>x0' == 36.0 &amp;
+ t' == 1.0 &amp;
+ x1' == 0.0 &amp;
+ autd101' == 0.0 &amp;
+ x2' == c1 &amp;
+ autd201' == c2</flow>
+    </location>
+    <location id="8" name="crs_crash_rcv">
+      <invariant>autd201 &lt;= 3.0</invariant>
+      <flow>x0' == 36.0 &amp;
+ t' == 1.0 &amp;
+ x1' == 0.0 &amp;
+ autd101' == 0.0 &amp;
+ x2' == c1 &amp;
+ autd201' == c3</flow>
+    </location>
+    <location id="9" name="crs_crash_crash">
+      <invariant>true</invariant>
+      <flow>x0' == 36.0 &amp;
+ t' == 1.0 &amp;
+ x1' == 0.0 &amp;
+ autd101' == 0.0 &amp;
+ x2' == 0.0 &amp;
+ autd201' == 0.0</flow>
+    </location>
+    <transition asap="false" bezier="false" source="1" target="5" timedriven="false">
+      <guard>autd101 &lt;= 2.0 &amp;
+ autd101 == x0 - x1 &amp;
+ autd201 &lt;= 2.0 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="1" target="4" timedriven="false">
+      <guard>autd101 &lt;= 2.0 &amp;
+ autd101 == x0 - x1 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="1" target="6" timedriven="false">
+      <guard>autd101 &lt;= 2.0 &amp;
+ autd101 == x0 - x1 &amp;
+ autd201 == x1 - x2 &amp;
+ x1 &lt;= x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="2" target="4" timedriven="false">
+      <guard>autd101 &lt;= 2.0 &amp;
+ autd101 == x0 - x1 &amp;
+ autd201 &gt;= 2.0 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="2" target="5" timedriven="false">
+      <guard>autd101 &lt;= 2.0 &amp;
+ autd101 == x0 - x1 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="2" target="6" timedriven="false">
+      <guard>autd101 &lt;= 2.0 &amp;
+ autd101 == x0 - x1 &amp;
+ autd201 == x1 - x2 &amp;
+ x1 &lt;= x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="1" target="2" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ autd201 &lt;= 2.0 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="1" target="1" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="1" target="3" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ autd201 == x1 - x2 &amp;
+ x1 &lt;= x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="2" target="1" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ autd201 &gt;= 2.0 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="2" target="2" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="2" target="3" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ autd201 == x1 - x2 &amp;
+ x1 &lt;= x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="1" target="8" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ x0 &lt;= x1 &amp;
+ autd201 &lt;= 2.0 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="1" target="7" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ x0 &lt;= x1 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="1" target="9" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ x0 &lt;= x1 &amp;
+ autd201 == x1 - x2 &amp;
+ x1 &lt;= x2</guard>
+      <assignment>x0' == x0</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="2" target="7" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ x0 &lt;= x1 &amp;
+ autd201 &gt;= 2.0 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="2" target="8" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ x0 &lt;= x1 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="2" target="9" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ x0 &lt;= x1 &amp;
+ autd201 == x1 - x2 &amp;
+ x1 &lt;= x2</guard>
+      <assignment>x0' == x0</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="4" target="2" timedriven="false">
+      <guard>autd101 &gt;= 2.0 &amp;
+ autd101 == x0 - x1 &amp;
+ autd201 &lt;= 2.0 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="4" target="1" timedriven="false">
+      <guard>autd101 &gt;= 2.0 &amp;
+ autd101 == x0 - x1 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="4" target="3" timedriven="false">
+      <guard>autd101 &gt;= 2.0 &amp;
+ autd101 == x0 - x1 &amp;
+ autd201 == x1 - x2 &amp;
+ x1 &lt;= x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="5" target="1" timedriven="false">
+      <guard>autd101 &gt;= 2.0 &amp;
+ autd101 == x0 - x1 &amp;
+ autd201 &gt;= 2.0 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="5" target="2" timedriven="false">
+      <guard>autd101 &gt;= 2.0 &amp;
+ autd101 == x0 - x1 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="5" target="3" timedriven="false">
+      <guard>autd101 &gt;= 2.0 &amp;
+ autd101 == x0 - x1 &amp;
+ autd201 == x1 - x2 &amp;
+ x1 &lt;= x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="4" target="5" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ autd201 &lt;= 2.0 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="4" target="4" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="4" target="6" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ autd201 == x1 - x2 &amp;
+ x1 &lt;= x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="5" target="4" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ autd201 &gt;= 2.0 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="5" target="5" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="5" target="6" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ autd201 == x1 - x2 &amp;
+ x1 &lt;= x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd101' == x0 - x1 &amp;
+ x1' == x1</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="4" target="8" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ x0 &lt;= x1 &amp;
+ autd201 &lt;= 2.0 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="4" target="7" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ x0 &lt;= x1 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="4" target="9" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ x0 &lt;= x1 &amp;
+ autd201 == x1 - x2 &amp;
+ x1 &lt;= x2</guard>
+      <assignment>x0' == x0</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="5" target="7" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ x0 &lt;= x1 &amp;
+ autd201 &gt;= 2.0 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="5" target="8" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ x0 &lt;= x1 &amp;
+ autd201 == x1 - x2</guard>
+      <assignment>x0' == x0 &amp;
+ autd201' == x1 - x2 &amp;
+ x2' == x2</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+    <transition asap="false" bezier="false" source="5" target="9" timedriven="false">
+      <guard>autd101 == x0 - x1 &amp;
+ x0 &lt;= x1 &amp;
+ autd201 == x1 - x2 &amp;
+ x1 &lt;= x2</guard>
+      <assignment>x0' == x0</assignment>
+      <labelposition/>
+      <middlepoint/>
+    </transition>
+  </component>
+  <component id="ACCS03_net">
+    <param controlled="true" d1="1" d2="1" dynamics="any" local="false" name="x0" type="real"/>
+    <param controlled="true" d1="1" d2="1" dynamics="any" local="false" name="x1" type="real"/>
+    <param controlled="true" d1="1" d2="1" dynamics="any" local="false" name="x2" type="real"/>
+    <param controlled="true" d1="1" d2="1" dynamics="any" local="false" name="c1" type="real"/>
+    <param controlled="true" d1="1" d2="1" dynamics="any" local="false" name="c2" type="real"/>
+    <param controlled="true" d1="1" d2="1" dynamics="any" local="false" name="c3" type="real"/>
+    <param controlled="true" d1="1" d2="1" dynamics="any" local="false" name="t" type="real"/>
+    <param controlled="true" d1="1" d2="1" dynamics="any" local="false" name="autd101" type="real"/>
+    <param controlled="true" d1="1" d2="1" dynamics="any" local="false" name="autd201" type="real"/>
+    <bind as="ACCS03" component="ACCS03_sys">
+      <map key="x0">x0</map>
+      <map key="x1">x1</map>
+      <map key="x2">x2</map>
+      <map key="c1">c1</map>
+      <map key="c2">c2</map>
+      <map key="c3">c3</map>
+      <map key="t">t</map>
+      <map key="autd101">autd101</map>
+      <map key="autd201">autd201</map>
+    </bind>
+  </component>
+</sspaceex>
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+<component id="aut0">
+<param name="x0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+<param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+<location id="0" name="crs" >
+<param name="tau" type="label" local="false" />
+<flow> x0' == 36 </flow>
+</location>
+
+<transition source="0" target="0" >
+<assignment> x0 = x0 </assignment>
+<label>tau</label>
+</transition>
+</component>
+
+<component id="system">
+<param name="x0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+<param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+<param name="tau" type="label" local="false" />
+<bind component="aut0" as="aut0">
+<map key="x0">x0</map>
+<map key="tau">tau</map>
+<map key="t">t</map>
+</bind></component>
+</sspaceex>

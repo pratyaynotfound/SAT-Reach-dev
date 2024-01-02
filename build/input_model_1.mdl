@@ -1,0 +1,510 @@
+
+#Variables
+controller_x
+t
+c
+#End
+
+
+#Location
+Locname: rod_0
+
+LocId: 1
+
+Inv: controller_x <= 16.1
+
+Flow:
+    controller_x = c
+    t = 1.0
+    c = 0.0
+#End
+
+Transition:
+
+    Dest: rod_1
+
+    DestId: 2
+
+    Label: add_1
+
+    Guard: controller_x >= 16.0 & controller_x <= 16.1
+
+    Reset:
+
+        controller_x' = 0.0
+
+    #End
+
+#End
+Transition:
+
+    Dest: rod_2
+
+    DestId: 3
+
+    Label: add_2
+
+    Guard: controller_x >= 16.0 & controller_x <= 16.1
+
+    Reset:
+
+        controller_x' = 0.0
+
+    #End
+
+#End
+Transition:
+
+    Dest: rod_3
+
+    DestId: 4
+
+    Label: add_3
+
+    Guard: controller_x >= 16.0 & controller_x <= 16.1
+
+    Reset:
+
+        controller_x' = 0.0
+
+    #End
+
+#End
+Transition:
+
+    Dest: rod_4
+
+    DestId: 5
+
+    Label: add_4
+
+    Guard: controller_x >= 16.0 & controller_x <= 16.1
+
+    Reset:
+
+        controller_x' = 0.0
+
+    #End
+
+#End
+Transition:
+
+    Dest: rod_5
+
+    DestId: 6
+
+    Label: add_5
+
+    Guard: controller_x >= 16.0 & controller_x <= 16.1
+
+    Reset:
+
+        controller_x' = 0.0
+
+    #End
+
+#End
+Transition:
+
+    Dest: rod_6
+
+    DestId: 7
+
+    Label: add_6
+
+    Guard: controller_x >= 16.0 & controller_x <= 16.1
+
+    Reset:
+
+        controller_x' = 0.0
+
+    #End
+
+#End
+Transition:
+
+    Dest: rod_7
+
+    DestId: 8
+
+    Label: add_7
+
+    Guard: controller_x >= 16.0 & controller_x <= 16.1
+
+    Reset:
+
+        controller_x' = 0.0
+
+    #End
+
+#End
+Transition:
+
+    Dest: rod_8
+
+    DestId: 9
+
+    Label: add_8
+
+    Guard: controller_x >= 16.0 & controller_x <= 16.1
+
+    Reset:
+
+        controller_x' = 0.0
+
+    #End
+
+#End
+Transition:
+
+    Dest: rod_9
+
+    DestId: 10
+
+    Label: add_9
+
+    Guard: controller_x >= 16.0 & controller_x <= 16.1
+
+    Reset:
+
+        controller_x' = 0.0
+
+    #End
+
+#End
+Transition:
+
+    Dest: rod_10
+
+    DestId: 11
+
+    Label: add_10
+
+    Guard: controller_x >= 16.0 & controller_x <= 16.1
+
+    Reset:
+
+        controller_x' = 0.0
+
+    #End
+
+#End
+#End
+#Location
+Locname: rod_1
+
+LocId: 2
+
+Inv: controller_x <= 5.9
+
+Flow:
+    controller_x = c
+    t = 1.0
+    c = 0.0
+#End
+
+Transition:
+
+    Dest: rod_0
+
+    DestId: 1
+
+    Label: remove_1
+
+    Guard: controller_x >= 5.0 & controller_x <= 5.9
+
+    Reset:
+
+        controller_x' = 0.0
+
+    #End
+
+#End
+#End
+#Location
+Locname: rod_2
+
+LocId: 3
+
+Inv: controller_x <= 5.9
+
+Flow:
+    controller_x = c
+    t = 1.0
+    c = 0.0
+#End
+
+Transition:
+
+    Dest: rod_0
+
+    DestId: 1
+
+    Label: remove_2
+
+    Guard: controller_x >= 5.0 & controller_x <= 5.9
+
+    Reset:
+
+        controller_x' = 0.0
+
+    #End
+
+#End
+#End
+#Location
+Locname: rod_3
+
+LocId: 4
+
+Inv: controller_x <= 5.9
+
+Flow:
+    controller_x = c
+    t = 1.0
+    c = 0.0
+#End
+
+Transition:
+
+    Dest: rod_0
+
+    DestId: 1
+
+    Label: remove_3
+
+    Guard: controller_x >= 5.0 & controller_x <= 5.9
+
+    Reset:
+
+        controller_x' = 0.0
+
+    #End
+
+#End
+#End
+#Location
+Locname: rod_4
+
+LocId: 5
+
+Inv: controller_x <= 5.9
+
+Flow:
+    controller_x = c
+    t = 1.0
+    c = 0.0
+#End
+
+Transition:
+
+    Dest: rod_0
+
+    DestId: 1
+
+    Label: remove_4
+
+    Guard: controller_x >= 5.0 & controller_x <= 5.9
+
+    Reset:
+
+        controller_x' = 0.0
+
+    #End
+
+#End
+#End
+#Location
+Locname: rod_5
+
+LocId: 6
+
+Inv: controller_x <= 5.9
+
+Flow:
+    controller_x = c
+    t = 1.0
+    c = 0.0
+#End
+
+Transition:
+
+    Dest: rod_0
+
+    DestId: 1
+
+    Label: remove_5
+
+    Guard: controller_x >= 5.0 & controller_x <= 5.9
+
+    Reset:
+
+        controller_x' = 0.0
+
+    #End
+
+#End
+#End
+#Location
+Locname: rod_6
+
+LocId: 7
+
+Inv: controller_x <= 5.9
+
+Flow:
+    controller_x = c
+    t = 1.0
+    c = 0.0
+#End
+
+Transition:
+
+    Dest: rod_0
+
+    DestId: 1
+
+    Label: remove_6
+
+    Guard: controller_x >= 5.0 & controller_x <= 5.9
+
+    Reset:
+
+        controller_x' = 0.0
+
+    #End
+
+#End
+#End
+#Location
+Locname: rod_7
+
+LocId: 8
+
+Inv: controller_x <= 5.9
+
+Flow:
+    controller_x = c
+    t = 1.0
+    c = 0.0
+#End
+
+Transition:
+
+    Dest: rod_0
+
+    DestId: 1
+
+    Label: remove_7
+
+    Guard: controller_x >= 5.0 & controller_x <= 5.9
+
+    Reset:
+
+        controller_x' = 0.0
+
+    #End
+
+#End
+#End
+#Location
+Locname: rod_8
+
+LocId: 9
+
+Inv: controller_x <= 5.9
+
+Flow:
+    controller_x = c
+    t = 1.0
+    c = 0.0
+#End
+
+Transition:
+
+    Dest: rod_0
+
+    DestId: 1
+
+    Label: remove_8
+
+    Guard: controller_x >= 5.0 & controller_x <= 5.9
+
+    Reset:
+
+        controller_x' = 0.0
+
+    #End
+
+#End
+#End
+#Location
+Locname: rod_9
+
+LocId: 10
+
+Inv: controller_x <= 5.9
+
+Flow:
+    controller_x = c
+    t = 1.0
+    c = 0.0
+#End
+
+Transition:
+
+    Dest: rod_0
+
+    DestId: 1
+
+    Label: remove_9
+
+    Guard: controller_x >= 5.0 & controller_x <= 5.9
+
+    Reset:
+
+        controller_x' = 0.0
+
+    #End
+
+#End
+#End
+#Location
+Locname: rod_10
+
+LocId: 11
+
+Inv: controller_x <= 5.9
+
+Flow:
+    controller_x = c
+    t = 1.0
+    c = 0.0
+#End
+
+Transition:
+
+    Dest: rod_0
+
+    DestId: 1
+
+    Label: remove_10
+
+    Guard: controller_x >= 5.0 & controller_x <= 5.9
+
+    Reset:
+
+        controller_x' = 0.0
+
+    #End
+
+#End
+#End
+
+#Init
+
+loc=rod_0: controller_x = 0.0 & c <= 1.1 & c >= 0.9 & t = 0.0 & c >= 0.9 & c <= 1.1
+
+#Forbidden
+
+rod_0: true

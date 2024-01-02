@@ -1,0 +1,549 @@
+%{
+#include <cstdio>
+#include <cstring>
+#include <vector>
+
+#include "application/structures.h"
+#include "core/hybridAutomata/hybridAutomata.h"
+#include "core/continuous/polytope/polytope.h"
+
+extern int linexplex();
+extern int linexperror(char *);
+
+polytope::ptr global_p; // initial_polytope
+polytope::ptr global_U; // input polytope U
+Dynamics global_D; // dynamics structure
+
+extern hybrid_automata ha; // gives access to index to id map.
+std::vector<double> l_coeff, r_coeff, l_ucoeff, r_ucoeff, cff;
+extern std::vector<double> u_coeff;
+
+double lconstant = 0, rconstant = 0, bound = 0;
+%}
+
+%union{ char* token_str; double const_val;}
+%token VAR UVAR YVAR CONST PLUS MINUS MULT EQ LEQ GEQ
+%type <token_str> VAR UVAR YVAR
+%type <const_val> CONST
+%start S
+ 
+%%
+
+S : LExpr EQ RExpr			{
+								// consider as <=
+								if(!l_coeff.empty() || !r_coeff.empty()){
+									int n = ha.map_size();
+									cff.clear();														
+									cff.resize(n,0);
+									for(unsigned int i=0;i<n;i++)
+									{
+										if(!l_coeff.empty() && l_coeff[i]!=0)
+											cff[i] = l_coeff[i];
+										else if(!r_coeff.empty() && r_coeff[i]!=0)
+											cff[i] = -r_coeff[i];
+									}
+									bound = rconstant - lconstant;
+									global_p->setMoreConstraints(cff, bound);
+								
+									
+									// consider as >=
+									cff.clear();
+									cff.resize(n,0);
+									for(unsigned int i=0;i<n;i++)
+									{
+										if(!l_coeff.empty() && l_coeff[i]!=0)
+											cff[i] = -l_coeff[i];
+										else if(!r_coeff.empty() && r_coeff[i]!=0)
+											cff[i] = r_coeff[i];
+									}
+									bound =  lconstant - rconstant;
+									global_p->setMoreConstraints(cff, bound);
+									rconstant = 0; lconstant=0;
+									l_coeff.clear(); r_coeff.clear(); cff.clear();
+								}
+	
+								// setting the input U
+								int m = ha.umap_size();
+								if(m==0) return 0; // no input
+								if(l_ucoeff.empty() && r_ucoeff.empty())
+									return 0; //no input constraint.
+	
+								u_coeff.clear();
+								u_coeff.resize(m,0);
+								for(unsigned int i=0;i<m;i++)
+								{
+									if(!l_ucoeff.empty() && l_ucoeff[i]!=0)
+										u_coeff[i] = l_ucoeff[i];
+									else if(!r_ucoeff.empty() && r_ucoeff[i]!=0)
+										u_coeff[i] = -r_ucoeff[i];
+								}
+								bound = rconstant - lconstant;
+								global_U->setMoreConstraints(u_coeff, bound);
+	
+								u_coeff.clear();
+								u_coeff.resize(m,0);
+								for(unsigned int i=0;i<m;i++)
+								{
+									if(!l_ucoeff.empty() && l_ucoeff[i]!=0)
+										u_coeff[i] = -l_ucoeff[i];
+									else if(!r_ucoeff.empty() && r_ucoeff[i]!=0)
+										u_coeff[i] = r_ucoeff[i];
+								}
+								bound = lconstant - rconstant;
+								global_U->setMoreConstraints(u_coeff, bound);
+	
+								rconstant = 0; lconstant=0;
+								l_ucoeff.clear(); r_ucoeff.clear();
+								return 0; 
+								
+							}
+	| LExpr LEQ RExpr 		{
+								//std::cout << "leq constraint:\n";
+														
+								if(!l_coeff.empty() || !r_coeff.empty()){
+									int n = ha.map_size();
+									cff.clear();
+									cff.resize(n,0);
+									for(unsigned int i=0;i<n;i++)
+									{
+										if(!l_coeff.empty() && l_coeff[i]!=0)
+											cff[i] = l_coeff[i];
+										else if(!r_coeff.empty() && r_coeff[i]!=0)
+											cff[i] = -r_coeff[i];
+									}
+									bound = rconstant - lconstant;
+									global_p->setMoreConstraints(cff, bound);
+									rconstant = 0; lconstant=0;
+									l_coeff.clear(); r_coeff.clear(); cff.clear();									
+								}
+							
+
+								// setting the input U
+								int m = ha.umap_size();
+								if(m==0) return 0; // no input
+								if(l_ucoeff.empty() && r_ucoeff.empty())
+									return 0; //no input constraint.
+
+								u_coeff.clear();
+								u_coeff.resize(m,0);
+								for(unsigned int i=0;i<m;i++)
+								{
+									if(!l_ucoeff.empty() && l_ucoeff[i]!=0)
+										u_coeff[i] = l_ucoeff[i];
+									else if(!r_ucoeff.empty() && r_ucoeff[i]!=0)
+										u_coeff[i] = -r_ucoeff[i];
+								}
+								bound = rconstant - lconstant;
+								global_U->setMoreConstraints(u_coeff, bound);
+								rconstant = 0; lconstant=0;
+								l_ucoeff.clear(); r_ucoeff.clear();
+								return 0; 
+							}
+	| LExpr GEQ RExpr		{
+													
+								if(!l_coeff.empty() || !r_coeff.empty()){
+									int n = ha.map_size();
+									cff.clear();
+									cff.resize(n,0);
+									for(unsigned int i=0;i<n;i++)
+									{
+										if(!l_coeff.empty() && l_coeff[i]!=0)
+											cff[i] = -l_coeff[i];
+										else if(!r_coeff.empty() && r_coeff[i]!=0)
+											cff[i] = r_coeff[i];
+									}
+									bound = lconstant - rconstant;
+									global_p->setMoreConstraints(cff, bound);
+									rconstant = 0; lconstant=0;
+									l_coeff.clear(); r_coeff.clear(); cff.clear();
+								}
+								
+								// setting the input U
+								int m = ha.umap_size();
+								if(m==0) return 0; // no input
+								if(l_ucoeff.empty() && r_ucoeff.empty())
+									return 0; //no input constraint.
+
+								u_coeff.clear();
+								u_coeff.resize(m,0);
+								for(unsigned int i=0;i<m;i++)
+								{
+									if(!l_ucoeff.empty() && l_ucoeff[i]!=0)
+										u_coeff[i] = -l_ucoeff[i];
+									else if(!r_ucoeff.empty() && r_ucoeff[i]!=0)
+										u_coeff[i] = r_ucoeff[i];
+								}
+								bound = lconstant - rconstant;
+								global_U->setMoreConstraints(u_coeff, bound);
+								rconstant = 0; lconstant=0;
+								l_ucoeff.clear(); r_ucoeff.clear();
+								return 0;
+							}
+| YVAR EQ YExpr				{
+								std::string yvar = $1;
+								unsigned int id = ha.get_y_index(yvar);
+								unsigned int dim = ha.map_size();
+								if(!cff.empty())
+								{
+									for(unsigned int j=0;j<dim;j++){
+										global_D.MatrixT(id,j) = cff[j];
+									}
+								}
+								
+								cff.clear();
+								lconstant = 0;					
+							}													
+;
+
+LExpr : LExpr PLUS LExpr			{;}
+           	
+		 | VAR					  	{										
+										std::string var = $1;
+										int id = ha.get_index(var);
+										if(l_coeff.empty()) 
+											l_coeff.resize(ha.map_size(),0);
+										l_coeff[id]=1;
+									}
+		 | MINUS VAR				{										
+										std::string var = $2;
+										int id = ha.get_index(var);
+										if(l_coeff.empty()) 
+											l_coeff.resize(ha.map_size(),0);
+										l_coeff[id]=-1;
+									}
+		 | UVAR						{
+										std::string uvar = $1;
+										int id = ha.get_u_index(uvar);
+										if(l_ucoeff.empty()) 
+											l_ucoeff.resize(ha.umap_size(),0);
+										l_ucoeff[id]=1;
+									}
+		 | MINUS UVAR				{
+										std::string uvar = $2;
+										int id = ha.get_u_index(uvar);
+										if(l_ucoeff.empty()) 
+											l_ucoeff.resize(ha.umap_size(),0);
+										l_ucoeff[id]=-1;
+									}
+		 | CONST 					{
+										lconstant = $1; 
+									}
+		 | CONST MULT UVAR			{
+										std::string uvar = $3;
+										int id = ha.get_u_index(uvar);
+										double c = $1;
+										if(l_ucoeff.empty())
+											l_ucoeff.resize(ha.umap_size(),0);
+										l_ucoeff[id] = c;
+									}
+		 | CONST MULT MINUS UVAR	{
+										std::string uvar = $4;
+										int id = ha.get_u_index(uvar);
+										double c = $1;
+										if(l_ucoeff.empty())
+										l_ucoeff.resize(ha.umap_size(),0);
+										l_ucoeff[id] = -c;
+									}
+		 | UVAR MULT CONST			{
+										std::string uvar = $1;
+										int id = ha.get_u_index(uvar);
+										double c = $3;
+										if(l_ucoeff.empty()) 
+											l_ucoeff.resize(ha.umap_size(),0);						
+										l_ucoeff[id] = c;
+									}
+		 | MINUS UVAR MULT CONST	{
+										std::string uvar = $2;
+										int id = ha.get_u_index(uvar);
+										double c = $4;
+										if(l_ucoeff.empty()) 
+											l_ucoeff.resize(ha.umap_size(),0);						
+										l_ucoeff[id] = -c;
+									}
+		 | CONST MULT VAR			{
+										std::string var = $3;
+										int id = ha.get_index(var);
+										double c = $1;
+										if(l_coeff.empty()) 
+											l_coeff.resize(ha.map_size(),0);						
+										l_coeff[id] = c; 	
+									}
+		 | CONST MULT MINUS VAR		{
+										std::string var = $4;
+										int id = ha.get_index(var);
+										double c = $1;
+										if(l_coeff.empty()) 
+											l_coeff.resize(ha.map_size(),0);						
+										l_coeff[id] = -c; 	
+									}
+		 | VAR MULT CONST			{
+										std::string var = $1;
+										int id = ha.get_index(var);
+										double c = $3;
+										if(l_coeff.empty()) 
+											l_coeff.resize(ha.map_size(),0);						
+										l_coeff[id] = c;	
+									}
+		 | MINUS VAR MULT CONST		{
+										std::string var = $2;
+										int id = ha.get_index(var);
+										double c = $4;
+										if(l_coeff.empty()) 
+											l_coeff.resize(ha.map_size(),0);						
+										l_coeff[id] = -c;	
+									} 
+		 | CONST VAR				{
+										std::string var = $2;
+										int id = ha.get_index(var);
+										double c = $1;
+										if(l_coeff.empty()) 
+											l_coeff.resize(ha.map_size(),0);						
+										l_coeff[id] = c; 								
+									}
+		 | CONST MINUS VAR			{
+										std::string var = $3;
+										int id = ha.get_index(var);
+										double c = $1;
+										if(l_coeff.empty()) 
+											l_coeff.resize(ha.map_size(),0);						
+										l_coeff[id] = -c; 								
+									}
+		 | CONST UVAR				{
+										std::string uvar = $2;
+										int id = ha.get_u_index(uvar);
+										double c = $1;
+										if(l_ucoeff.empty()) 
+											l_ucoeff.resize(ha.umap_size(),0);						
+										l_ucoeff[id] = c; 								
+									}
+		 | CONST MINUS UVAR			{
+										std::string uvar = $3;
+										int id = ha.get_u_index(uvar);
+										double c = $1;
+										if(l_ucoeff.empty()) 
+											l_ucoeff.resize(ha.umap_size(),0);						
+										l_ucoeff[id] = -c; 								
+									}
+
+		 ;
+
+RExpr : RExpr PLUS RExpr {;} 
+		 | VAR					  	{										
+										std::string var = $1;
+										int id = ha.get_index(var);
+										if(r_coeff.empty()) 
+											r_coeff.resize(ha.map_size(),0);
+										r_coeff[id]=1;
+									}
+		 | MINUS VAR				{										
+										std::string var = $2;
+										int id = ha.get_index(var);
+										if(r_coeff.empty()) 
+											r_coeff.resize(ha.map_size(),0);
+										r_coeff[id]=-1;
+									}
+		 | UVAR						{
+										std::string uvar = $1;
+										int id = ha.get_u_index(uvar);
+										if(r_ucoeff.empty()) 
+											r_ucoeff.resize(ha.umap_size(),0);
+										r_ucoeff[id]=1;
+									}
+		 | MINUS UVAR				{
+										std::string uvar = $2;
+										int id = ha.get_u_index(uvar);
+										if(r_ucoeff.empty()) 
+											r_ucoeff.resize(ha.umap_size(),0);
+										r_ucoeff[id]=-1;
+									}	
+		 | CONST 					{
+										rconstant = $1; 
+									}
+		 | CONST MULT UVAR			{
+										std::string uvar = $3;
+										int id = ha.get_u_index(uvar);
+										double c = $1;
+										if(r_ucoeff.empty())
+											r_ucoeff.resize(ha.umap_size(),0);
+										r_ucoeff[id] = c;
+									}
+		 | CONST MULT MINUS UVAR	{
+										std::string uvar = $4;
+										int id = ha.get_u_index(uvar);
+										double c = $1;
+										if(r_ucoeff.empty())
+											r_ucoeff.resize(ha.umap_size(),0);
+										r_ucoeff[id] = -c;
+									}
+		 | UVAR MULT CONST			{
+										std::string uvar = $1;
+										int id = ha.get_u_index(uvar);
+										double c = $3;
+										if(r_ucoeff.empty()) 
+											r_ucoeff.resize(ha.umap_size(),0);						
+										r_ucoeff[id] = c;
+									}
+		 | MINUS UVAR MULT CONST	{
+										std::string uvar = $2;
+										int id = ha.get_u_index(uvar);
+										double c = $4;
+										if(r_ucoeff.empty()) 
+											r_ucoeff.resize(ha.umap_size(),0);						
+										r_ucoeff[id] = -c;
+									}
+		 | CONST MULT VAR			{
+										std::string var = $3;
+										int id = ha.get_index(var);
+										double c = $1;
+										if(r_coeff.empty()) 
+											r_coeff.resize(ha.map_size(),0);						
+										r_coeff[id] = c; 	
+									}
+		 | CONST MULT MINUS VAR		{
+										std::string var = $4;
+										int id = ha.get_index(var);
+										double c = $1;
+										if(r_coeff.empty()) 
+											r_coeff.resize(ha.map_size(),0);						
+										r_coeff[id] = -c; 	
+									}
+		 | VAR MULT CONST			{
+										std::string var = $1;
+										int id = ha.get_index(var);
+										double c = $3;
+										if(r_coeff.empty()) 
+											r_coeff.resize(ha.map_size(),0);						
+										r_coeff[id] = c;	
+									}
+		 | MINUS VAR MULT CONST		{
+										std::string var = $2;
+										int id = ha.get_index(var);
+										double c = $4;
+										if(r_coeff.empty()) 
+											r_coeff.resize(ha.map_size(),0);						
+										r_coeff[id] = -c;	
+									}
+		 | CONST VAR				{
+										std::string var = $2;
+										int id = ha.get_index(var);
+										double c = $1;
+										if(r_coeff.empty()) 
+											r_coeff.resize(ha.map_size(),0);						
+										r_coeff[id] = c; 								
+									}
+		 | CONST MINUS VAR			{
+										std::string var = $3;
+										int id = ha.get_index(var);
+										double c = $1;
+										if(r_coeff.empty()) 
+											r_coeff.resize(ha.map_size(),0);						
+										r_coeff[id] = -c; 								
+									}
+		 | CONST UVAR				{
+										std::string uvar = $2;
+										int id = ha.get_u_index(uvar);
+										double c = $1;
+										if(r_ucoeff.empty()) 
+											r_ucoeff.resize(ha.umap_size(),0);						
+										r_ucoeff[id] = c; 								
+									}
+		 | CONST MINUS UVAR			{
+										std::string uvar = $3;
+										int id = ha.get_u_index(uvar);
+										double c = $1;
+										if(r_ucoeff.empty()) 
+											r_ucoeff.resize(ha.umap_size(),0);						
+										r_ucoeff[id] = -c; 								
+									}	
+		 ;
+YExpr    : YExpr PLUS YExpr {;} 
+	     							
+	     | VAR					  	{										
+										std::string var = $1;
+										int id = ha.get_index(var);
+										if(cff.empty()) 
+											cff.resize(ha.map_size(),0);
+										cff[id]=1;
+									}
+		 | MINUS VAR				{										
+										std::string var = $2;
+										int id = ha.get_index(var);
+										if(cff.empty()) 
+											cff.resize(ha.map_size(),0);
+										cff[id]=-1;
+									}
+		
+		 | CONST 					{
+										lconstant += $1; 
+									}
+
+		 | CONST MULT VAR			{
+										std::string var = $3;
+										int id = ha.get_index(var);
+										double c = $1;
+										if(cff.empty()) 
+											cff.resize(ha.map_size(),0);						
+										cff[id] = c; 	
+									}
+		 | CONST MULT MINUS VAR		{
+										std::string var = $4;
+										int id = ha.get_index(var);
+										double c = $1;
+										if(cff.empty()) 
+											cff.resize(ha.map_size(),0);						
+										cff[id] = -c; 	
+									}
+		 | VAR MULT CONST			{
+										std::string var = $1;
+										int id = ha.get_index(var);
+										double c = $3;
+										if(cff.empty()) 
+											cff.resize(ha.map_size(),0);						
+										cff[id] = c;	
+									}
+		 | MINUS VAR MULT CONST		{
+										std::string var = $2;
+										int id = ha.get_index(var);
+										double c = $4;
+										if(cff.empty()) 
+											cff.resize(ha.map_size(),0);						
+										cff[id] = -c;	
+									} 
+		 | CONST VAR				{
+										std::string var = $2;
+										int id = ha.get_index(var);
+										double c = $1;
+										if(cff.empty()) 
+											cff.resize(ha.map_size(),0);						
+										cff[id] = c; 								
+									}
+		 | CONST MINUS VAR			{
+										std::string var = $3;
+										int id = ha.get_index(var);
+										double c = $1;
+										if(cff.empty()) 
+											cff.resize(ha.map_size(),0);						
+										cff[id] = -c; 								
+									}
+;	     
+%%
+
+void linexp_parser(polytope::ptr& p, polytope::ptr& U, Dynamics& D)
+{
+	global_p = p;
+	global_U = U;
+	global_D = D;
+	linexpparse();
+	p = global_p;
+	U = global_U;
+	D = global_D;
+}
+
+
+int linexperror(char* s)
+{
+	fprintf(stderr,"Linear Constraint Expression Specification: %s\n", s);
+	exit(0);
+	return 0;
+}
+

@@ -1,0 +1,493 @@
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+	<component id="aut0">
+		<param name="x0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x5" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<assignment>x0:=x5+38.0</assignment>
+		</transition>
+	</component>
+	<component id="aut1">
+		<param name="x1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="x5" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x5+72.0&lt;=x0+40.0 &amp; </guard>
+			<assignment>x1:=x0+40.0</assignment>
+		</transition>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x0+40.0&lt;=x5+72.0 &amp; </guard>
+			<assignment>x1:=x5+72.0</assignment>
+		</transition>
+	</component>
+	<component id="aut2">
+		<param name="x2" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<assignment>x2:=x1+50.0</assignment>
+		</transition>
+	</component>
+	<component id="aut3">
+		<param name="x3" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x2" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<assignment>x3:=x2+41.0</assignment>
+		</transition>
+	</component>
+	<component id="aut4">
+		<param name="x4" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x3" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<assignment>x4:=x3+41.0</assignment>
+		</transition>
+	</component>
+	<component id="aut5">
+		<param name="x5" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x4" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<assignment>x5:=x4+53.0</assignment>
+		</transition>
+	</component>
+	<component id="aut6">
+		<param name="x6" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x13" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<assignment>x6:=x13+38.0</assignment>
+		</transition>
+	</component>
+	<component id="aut7">
+		<param name="x7" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x13" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<assignment>x7:=x13+36.0</assignment>
+		</transition>
+	</component>
+	<component id="aut8">
+		<param name="x8" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x4" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="x6" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="x7" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="x14" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="x15" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x6+55.0&lt;=x4+37.0 &amp; x7+54.0&lt;=x4+37.0 &amp; x14+30.0&lt;=x4+37.0 &amp; x15+36.0&lt;=x4+37.0 &amp; </guard>
+			<assignment>x8:=x4+37.0</assignment>
+		</transition>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x4+37.0&lt;=x6+55.0 &amp; x7+54.0&lt;=x6+55.0 &amp; x14+30.0&lt;=x6+55.0 &amp; x15+36.0&lt;=x6+55.0 &amp; </guard>
+			<assignment>x8:=x6+55.0</assignment>
+		</transition>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x4+37.0&lt;=x7+54.0 &amp; x6+55.0&lt;=x7+54.0 &amp; x14+30.0&lt;=x7+54.0 &amp; x15+36.0&lt;=x7+54.0 &amp; </guard>
+			<assignment>x8:=x7+54.0</assignment>
+		</transition>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x4+37.0&lt;=x14+30.0 &amp; x6+55.0&lt;=x14+30.0 &amp; x7+54.0&lt;=x14+30.0 &amp; x15+36.0&lt;=x14+30.0 &amp; </guard>
+			<assignment>x8:=x14+30.0</assignment>
+		</transition>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x4+37.0&lt;=x15+36.0 &amp; x6+55.0&lt;=x15+36.0 &amp; x7+54.0&lt;=x15+36.0 &amp; x14+30.0&lt;=x15+36.0 &amp; </guard>
+			<assignment>x8:=x15+36.0</assignment>
+		</transition>
+	</component>
+	<component id="aut9">
+		<param name="x9" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x8" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<assignment>x9:=x8+35.0</assignment>
+		</transition>
+	</component>
+	<component id="aut10">
+		<param name="x10" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x9" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<assignment>x10:=x9+54.0</assignment>
+		</transition>
+	</component>
+	<component id="aut11">
+		<param name="x11" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x9" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<assignment>x11:=x9+58.0</assignment>
+		</transition>
+	</component>
+	<component id="aut12">
+		<param name="x12" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="x10" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="x11" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="x14" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="x15" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x10+90.0&lt;=x1+60.0 &amp; x11+93.0&lt;=x1+60.0 &amp; x14+30.0&lt;=x1+60.0 &amp; x15+36.0&lt;=x1+60.0 &amp; </guard>
+			<assignment>x12:=x1+60.0</assignment>
+		</transition>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x1+60.0&lt;=x10+90.0 &amp; x11+93.0&lt;=x10+90.0 &amp; x14+30.0&lt;=x10+90.0 &amp; x15+36.0&lt;=x10+90.0 &amp; </guard>
+			<assignment>x12:=x10+90.0</assignment>
+		</transition>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x1+60.0&lt;=x11+93.0 &amp; x10+90.0&lt;=x11+93.0 &amp; x14+30.0&lt;=x11+93.0 &amp; x15+36.0&lt;=x11+93.0 &amp; </guard>
+			<assignment>x12:=x11+93.0</assignment>
+		</transition>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x1+60.0&lt;=x14+30.0 &amp; x10+90.0&lt;=x14+30.0 &amp; x11+93.0&lt;=x14+30.0 &amp; x15+36.0&lt;=x14+30.0 &amp; </guard>
+			<assignment>x12:=x14+30.0</assignment>
+		</transition>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x1+60.0&lt;=x15+36.0 &amp; x10+90.0&lt;=x15+36.0 &amp; x11+93.0&lt;=x15+36.0 &amp; x14+30.0&lt;=x15+36.0 &amp; </guard>
+			<assignment>x12:=x15+36.0</assignment>
+		</transition>
+	</component>
+	<component id="aut13">
+		<param name="x13" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x12" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="x14" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="x15" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x14+30.0&lt;=x12+16.0 &amp; x15+36.0&lt;=x12+16.0 &amp; </guard>
+			<assignment>x13:=x12+16.0</assignment>
+		</transition>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x12+16.0&lt;=x14+30.0 &amp; x15+36.0&lt;=x14+30.0 &amp; </guard>
+			<assignment>x13:=x14+30.0</assignment>
+		</transition>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x12+16.0&lt;=x15+36.0 &amp; x14+30.0&lt;=x15+36.0 &amp; </guard>
+			<assignment>x13:=x15+36.0</assignment>
+		</transition>
+	</component>
+	<component id="aut14">
+		<param name="x14" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x20" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<assignment>x14:=x20+30.0</assignment>
+		</transition>
+	</component>
+	<component id="aut15">
+		<param name="x15" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x20" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<assignment>x15:=x20+35.0</assignment>
+		</transition>
+	</component>
+	<component id="aut16">
+		<param name="x16" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x6" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="x7" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="x14" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="x15" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x7+54.0&lt;=x6+55.0 &amp; x14+30.0&lt;=x6+55.0 &amp; x15+36.0&lt;=x6+55.0 &amp; </guard>
+			<assignment>x16:=x6+55.0</assignment>
+		</transition>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x6+55.0&lt;=x7+54.0 &amp; x14+30.0&lt;=x7+54.0 &amp; x15+36.0&lt;=x7+54.0 &amp; </guard>
+			<assignment>x16:=x7+54.0</assignment>
+		</transition>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x6+55.0&lt;=x14+30.0 &amp; x7+54.0&lt;=x14+30.0 &amp; x15+36.0&lt;=x14+30.0 &amp; </guard>
+			<assignment>x16:=x14+30.0</assignment>
+		</transition>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x6+55.0&lt;=x15+36.0 &amp; x7+54.0&lt;=x15+36.0 &amp; x14+30.0&lt;=x15+36.0 &amp; </guard>
+			<assignment>x16:=x15+36.0</assignment>
+		</transition>
+	</component>
+	<component id="aut17">
+		<param name="x17" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x16" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<assignment>x17:=x16+68.0</assignment>
+		</transition>
+	</component>
+	<component id="aut18">
+		<param name="x18" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x17" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<assignment>x18:=x17+12.0</assignment>
+		</transition>
+	</component>
+	<component id="aut19">
+		<param name="x19" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x18" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<assignment>x19:=x18+17.0</assignment>
+		</transition>
+	</component>
+	<component id="aut20">
+		<param name="x20" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+		<param name="tick" type="label" local="false" />
+		<param name="x6" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="x7" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="x10" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="x11" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="x19" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<location id="1" name="loc1"></location>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x7+54.0&lt;=x6+55.0 &amp; x10+90.0&lt;=x6+55.0 &amp; x11+93.0&lt;=x6+55.0 &amp; x19+60.0&lt;=x6+55.0 &amp; </guard>
+			<assignment>x20:=x6+55.0</assignment>
+		</transition>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x6+55.0&lt;=x7+54.0 &amp; x10+90.0&lt;=x7+54.0 &amp; x11+93.0&lt;=x7+54.0 &amp; x19+60.0&lt;=x7+54.0 &amp; </guard>
+			<assignment>x20:=x7+54.0</assignment>
+		</transition>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x6+55.0&lt;=x10+90.0 &amp; x7+54.0&lt;=x10+90.0 &amp; x11+93.0&lt;=x10+90.0 &amp; x19+60.0&lt;=x10+90.0 &amp; </guard>
+			<assignment>x20:=x10+90.0</assignment>
+		</transition>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x6+55.0&lt;=x11+93.0 &amp; x7+54.0&lt;=x11+93.0 &amp; x10+90.0&lt;=x11+93.0 &amp; x19+60.0&lt;=x11+93.0 &amp; </guard>
+			<assignment>x20:=x11+93.0</assignment>
+		</transition>
+		<transition source="1" target="1">
+			<label>tick</label>
+			<guard>x6+55.0&lt;=x19+60.0 &amp; x7+54.0&lt;=x19+60.0 &amp; x10+90.0&lt;=x19+60.0 &amp; x11+93.0&lt;=x19+60.0 &amp; </guard>
+			<assignment>x20:=x19+60.0</assignment>
+		</transition>
+	</component>
+	<component id="sys1">
+		<param name="x0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<param name="x1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<param name="x2" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<param name="x3" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<param name="x4" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<param name="x5" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<param name="x6" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<param name="x7" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<param name="x8" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<param name="x9" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<param name="x10" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<param name="x11" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<param name="x12" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<param name="x13" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<param name="x14" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<param name="x15" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<param name="x16" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<param name="x17" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<param name="x18" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<param name="x19" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<param name="x20" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+		<param name="tick" type="label" local="false" />
+		<bind component="aut0" as="aut0_1">
+			<map key="x0">x0</map>
+			<map key="tick">tick</map>
+			<map key="x5">x5</map>
+		</bind>
+		<bind component="aut1" as="aut1_1">
+			<map key="x1">x1</map>
+			<map key="tick">tick</map>
+			<map key="x0">x0</map>
+			<map key="x5">x5</map>
+		</bind>
+		<bind component="aut2" as="aut2_1">
+			<map key="x2">x2</map>
+			<map key="tick">tick</map>
+			<map key="x1">x1</map>
+		</bind>
+		<bind component="aut3" as="aut3_1">
+			<map key="x3">x3</map>
+			<map key="tick">tick</map>
+			<map key="x2">x2</map>
+		</bind>
+		<bind component="aut4" as="aut4_1">
+			<map key="x4">x4</map>
+			<map key="tick">tick</map>
+			<map key="x3">x3</map>
+		</bind>
+		<bind component="aut5" as="aut5_1">
+			<map key="x5">x5</map>
+			<map key="tick">tick</map>
+			<map key="x4">x4</map>
+		</bind>
+		<bind component="aut6" as="aut6_1">
+			<map key="x6">x6</map>
+			<map key="tick">tick</map>
+			<map key="x13">x13</map>
+		</bind>
+		<bind component="aut7" as="aut7_1">
+			<map key="x7">x7</map>
+			<map key="tick">tick</map>
+			<map key="x13">x13</map>
+		</bind>
+		<bind component="aut8" as="aut8_1">
+			<map key="x8">x8</map>
+			<map key="tick">tick</map>
+			<map key="x4">x4</map>
+			<map key="x6">x6</map>
+			<map key="x7">x7</map>
+			<map key="x14">x14</map>
+			<map key="x15">x15</map>
+		</bind>
+		<bind component="aut9" as="aut9_1">
+			<map key="x9">x9</map>
+			<map key="tick">tick</map>
+			<map key="x8">x8</map>
+		</bind>
+		<bind component="aut10" as="aut10_1">
+			<map key="x10">x10</map>
+			<map key="tick">tick</map>
+			<map key="x9">x9</map>
+		</bind>
+		<bind component="aut11" as="aut11_1">
+			<map key="x11">x11</map>
+			<map key="tick">tick</map>
+			<map key="x9">x9</map>
+		</bind>
+		<bind component="aut12" as="aut12_1">
+			<map key="x12">x12</map>
+			<map key="tick">tick</map>
+			<map key="x1">x1</map>
+			<map key="x10">x10</map>
+			<map key="x11">x11</map>
+			<map key="x14">x14</map>
+			<map key="x15">x15</map>
+		</bind>
+		<bind component="aut13" as="aut13_1">
+			<map key="x13">x13</map>
+			<map key="tick">tick</map>
+			<map key="x12">x12</map>
+			<map key="x14">x14</map>
+			<map key="x15">x15</map>
+		</bind>
+		<bind component="aut14" as="aut14_1">
+			<map key="x14">x14</map>
+			<map key="tick">tick</map>
+			<map key="x20">x20</map>
+		</bind>
+		<bind component="aut15" as="aut15_1">
+			<map key="x15">x15</map>
+			<map key="tick">tick</map>
+			<map key="x20">x20</map>
+		</bind>
+		<bind component="aut16" as="aut16_1">
+			<map key="x16">x16</map>
+			<map key="tick">tick</map>
+			<map key="x6">x6</map>
+			<map key="x7">x7</map>
+			<map key="x14">x14</map>
+			<map key="x15">x15</map>
+		</bind>
+		<bind component="aut17" as="aut17_1">
+			<map key="x17">x17</map>
+			<map key="tick">tick</map>
+			<map key="x16">x16</map>
+		</bind>
+		<bind component="aut18" as="aut18_1">
+			<map key="x18">x18</map>
+			<map key="tick">tick</map>
+			<map key="x17">x17</map>
+		</bind>
+		<bind component="aut19" as="aut19_1">
+			<map key="x19">x19</map>
+			<map key="tick">tick</map>
+			<map key="x18">x18</map>
+		</bind>
+		<bind component="aut20" as="aut20_1">
+			<map key="x20">x20</map>
+			<map key="tick">tick</map>
+			<map key="x6">x6</map>
+			<map key="x7">x7</map>
+			<map key="x10">x10</map>
+			<map key="x11">x11</map>
+			<map key="x19">x19</map>
+		</bind>
+	</component>
+</sspaceex>

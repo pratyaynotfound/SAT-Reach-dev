@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sspaceex version="0.2" math="Spaceex">
+ <component id="rod_template">
+  <param name="rod_6_x" type="real" local="true" d1="1" d2="1" dynamics="any"/>
+  <param name="c" type="real" local="false" d1="1" d2="1" dynamics="const"/>
+  <param name="t" type="real" local="false" d1="1" d2="1" dynamics="any"/>
+  <param name="add_6" type="label" local="false"/>
+  <param name="remove_6" type="label" local="false"/>
+  <param name="recovery_6" type="label" local="false"/>
+  <location id="1" name="out">
+   <invariant>rod_6_x&lt;=10</invariant>
+   <flow>rod_6_x&apos;== c &amp; t&apos; == 1</flow>
+  </location>
+  <location id="2" name="in">
+   <invariant>rod_6_x&lt;=10000</invariant>
+   <flow>rod_6_x&apos;== c &amp; t&apos; == 1</flow>
+  </location>
+  <location id="3" name="recover">
+   <invariant>rod_6_x&lt;=10000</invariant>
+   <flow>rod_6_x&apos;== c &amp; t&apos; == 1</flow>
+  </location>
+  <transition source="1" target="2">
+   <label>add_6</label>
+   <guard>rod_6_x&gt;=1</guard>
+   <assignment>rod_6_x:=0</assignment>
+  </transition>
+  <transition source="2" target="3">
+   <label>remove_6</label>
+  </transition>
+  <transition source="3" target="1">
+   <label>recovery_6</label>
+  </transition>
+ </component>
+</sspaceex>

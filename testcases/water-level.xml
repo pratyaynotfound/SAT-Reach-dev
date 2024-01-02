@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+  <component id="system">
+    <param name="x1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="x2" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="time" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="e0" type="label" local="false" />
+    <param name="e1" type="label" local="false" />
+    <param name="e2" type="label" local="false" />
+    <param name="e3" type="label" local="false" />
+    <param name="e4" type="label" local="false" />
+    <param name="e5" type="label" local="false" />
+    <location id="1" name="loc00" x="242.0" y="132.0">
+      <flow>x1' == 0 &amp; x2' == 0</flow>
+      <invariant>x2 &lt;= 10</invariant>
+    </location>
+    <location id="2" name="loc11" x="487.0" y="132.0" width="112.0" height="72.0">
+      <invariant>x2 &lt;= 10</invariant>
+      <flow>x1' == 1 &amp; x2' == 1</flow>
+    </location>
+    <location id="3" name="loc22" x="716.0" y="131.0" width="114.0" height="94.0">
+      <invariant>x1 &lt;= 2</invariant>
+      <flow>x1' == 1 &amp; x2' == 1</flow>
+    </location>
+    <location id="4" name="loc33" x="723.0" y="329.0" width="118.0" height="92.0">
+      <invariant>x2 &gt;= 5</invariant>
+      <flow>x1' == 1 &amp; x2' == -2</flow>
+    </location>
+    <location id="5" name="loc44" x="482.0" y="324.0" width="118.0" height="84.0">
+      <invariant>x1 &lt;= 2</invariant>
+      <flow>x1' == 1 &amp; x2' == -2</flow>
+    </location>
+    <location id="6" name="loc55" x="270.0" y="306.0">
+      <flow>x1' == 0 &amp; x2' == 0</flow>
+      <invariant>x2 &lt;= 10</invariant>
+    </location>
+    <transition source="1" target="2">
+      <label>e0</label>
+      <assignment>x1 := 0 &amp; x2 := 1</assignment>
+      <labelposition x="-26.0" y="-37.0" width="104.0" height="62.0" />
+    </transition>
+    <transition source="2" target="3">
+      <label>e1</label>
+      <guard>x2 == 10</guard>
+      <assignment>x1 := 0</assignment>
+      <labelposition x="-22.0" y="-23.0" width="58.0" height="70.0" />
+    </transition>
+    <transition source="3" target="4">
+      <label>e2</label>
+      <guard>x1 == 2</guard>
+      <labelposition x="1.0" y="-23.0" />
+    </transition>
+    <transition source="4" target="5">
+      <label>e3</label>
+      <guard>x2 == 5</guard>
+      <assignment>x1 := 0</assignment>
+      <labelposition x="-19.0" y="-19.0" width="60.0" height="62.0" />
+    </transition>
+    <transition source="5" target="2">
+      <label>e4</label>
+      <guard>x1 == 2</guard>
+      <labelposition x="0.0" y="0.0" />
+    </transition>
+    <transition source="2" target="6">
+      <label>e5</label>
+      <guard>x2 == 0</guard>
+      <labelposition x="-36.0" y="-19.0" width="74.0" height="76.0" />
+    </transition>
+  </component>
+</sspaceex>
+

@@ -1,0 +1,111 @@
+%{
+#include <cstdio>
+#include <cstring>
+#include <vector>
+
+#include "application/DataStructureDirections.h"
+#include "core/HybridAutomata/Transition.h"
+#include "core/HybridAutomata/Hybrid_Automata.h"
+
+extern int resetlex();
+extern int resetparse(void);
+extern int reseterror(char *);
+
+// The mode dynamics to be created
+extern hybrid_automata ha; // gives access to index to id map.
+Assign r_map; // the global transition reset map
+std::vector<double> cf;
+double w = 0;
+%}
+
+%union{ char* token_str; double const_val;}
+%token VAR CONST PLUS MULT EQ LEQ GEQ
+%type <token_str> VAR
+%type <const_val> CONST
+%start S
+ 
+%%
+
+S : VAR EQ Expr					{
+													//printf("Assignment Rule\n");
+											
+													std::string var=$1;
+													int lhs_id = ha.get_index(var);
+													unsigned int n = ha.map_size();
+													//printf("ha map size: %d\n",n);
+													//printf("lhs_id: %d\n",lhs_id);
+													
+													if(!cf.empty()){
+														for(unsigned int j=0;j<n;j++)
+															r_map.Map(lhs_id,j)=cf[j];
+														cf.clear();
+													}
+													else{ // a constant reset
+														r_map.Map(lhs_id, lhs_id)=0; // unset x'=x map.
+													}	
+													r_map.b[lhs_id] = w;
+													
+													w = 0;
+													return 0;
+												}
+	;
+
+Expr : Expr PLUS Expr  	{;}
+		 | VAR					  	{
+													//printf("var\n");
+													std::string var = $1;
+													int id = ha.get_index(var);
+													if(cf.empty()) 
+														cf.resize(ha.map_size(),0);
+													cf[id]=1;
+												}
+		 
+		 | CONST 						{
+													//printf("const\n");
+													w = $1; 
+												}
+
+		 | CONST MULT VAR		{
+													//printf("const mult var\n");
+													std::string var = $3;
+													int id = ha.get_index(var);
+													double c = $1;
+													if(cf.empty()) 
+														cf.resize(ha.map_size(),0);						
+													cf[id] = c; 	
+												}
+		 | VAR MULT CONST		{
+													//printf("var mult const\n");
+													std::string var = $1;
+													int id = ha.get_index(var);
+													double c = $3;
+													if(cf.empty()) 
+														cf.resize(ha.map_size(),0);						
+													cf[id] = c;	
+												}
+		 | CONST VAR				{
+													//printf("const var \n");
+													std::string var = $2;
+													int id = ha.get_index(var);
+													double c = $1;
+													if(cf.empty()) 
+														cf.resize(ha.map_size(),0);						
+													cf[id] = c; 								
+												}
+	
+		 ;
+%%
+
+void reset_parser(Assign& reset_map)
+{
+	r_map = reset_map;
+	cf.clear();
+	resetparse();
+	reset_map = r_map;
+}
+
+int reseterror(char *s)
+{
+	fprintf(stderr,"Transition reset specification: %s\n", s);
+	return 0;
+}

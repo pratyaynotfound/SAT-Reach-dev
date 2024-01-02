@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+	<component id="p_template">
+		<param name="x" type="real" local="true" d1="1" d2="1" dynamics="any" />
+		<param name="y" type="real" local="true" d1="1" d2="1" dynamics="any" />
+		<param name="z" type="real" local="true" d1="1" d2="1" dynamics="any" />
+		<param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" />
+		<param name="rt_0" type="label" local="false" />
+		<param name="rt_1" type="label" local="false" />
+		<param name="tau" type="label" local="false" />
+		<param name="tt" type="label" local="false" />
+		<location id="1" name="s1">
+			<flow>x'==1 &amp; y'==1 &amp; z'==1 &amp; t'==1</flow>
+		</location>
+		<location id="2" name="s2">
+			<flow>x'==1 &amp; y'==1 &amp; z'==1 &amp; t'==1</flow>
+		</location>
+		<location id="3" name="s3">
+			<flow>x'==1 &amp; y'==1 &amp; z'==1&amp; t'==1</flow>
+		</location>
+		<location id="4" name="s4">
+			<flow>x'==1 &amp; y'==1 &amp; z'==1&amp; t'==1</flow>
+		</location>
+		<location id="5" name="s5">
+			<flow>x'==1 &amp; y'==1 &amp; z'==1&amp; t'==1</flow>
+		</location>
+		<location id="6" name="s6">
+			<flow>x'==1 &amp; y'==1 &amp; z'==1&amp; t'==1</flow>
+		</location>
+		<transition source="1" target="2">
+			<label>rt_0</label>
+			<guard>x&lt;=2</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="2" target="3">
+			<label>tau</label>
+			<guard>x==20&amp;z&lt;=620</guard>
+		</transition>
+		<transition source="2" target="4">
+			<label>rt_1</label>
+			<guard>x==20&amp;z&gt;=620</guard>
+		</transition>
+		<transition source="3" target="4">
+			<label>rt_1</label>
+			<guard>z&lt;=620</guard>
+		</transition>
+		<transition source="4" target="5">
+			<label>tt</label>
+			<assignment>x:=0&amp;z:=0</assignment>
+		</transition>
+		<transition source="5" target="1">
+			<label>rt_1</label>
+			<guard>x==20&amp;y&gt;=620</guard>
+		</transition>
+		<transition source="5" target="6">
+			<label>tau</label>
+			<guard>x==20&amp;y&lt;=620</guard>
+		</transition>
+		<transition source="6" target="1">
+			<label>rt_1</label>
+			<guard>y&lt;=620</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+	</component>
+	<component id="system">
+		<param name="t0" type="label" local="false" />
+		<param name="rt_1_2" type="label" local="false" />
+		<param name="tau_1" type="label" local="false" />
+		<param name="tt_1" type="label" local="false" />
+		<param name="rt_2_3" type="label" local="false" />
+		<param name="tau_2" type="label" local="false" />
+		<param name="tt_2" type="label" local="false" />
+		<param name="rt_3_4" type="label" local="false" />
+		<param name="tau_3" type="label" local="false" />
+		<param name="tt_3" type="label" local="false" />
+		<param name="rt_4_5" type="label" local="false" />
+		<param name="tau_4" type="label" local="false" />
+		<param name="tt_4" type="label" local="false" />
+		<param name="rt_5_6" type="label" local="false" />
+		<param name="tau_5" type="label" local="false" />
+		<param name="tt_5" type="label" local="false" />
+		<param name="rt_6_7" type="label" local="false" />
+		<param name="tau_6" type="label" local="false" />
+		<param name="tt_6" type="label" local="false" />
+		<param name="rt_7_8" type="label" local="false" />
+		<param name="tau_7" type="label" local="false" />
+		<param name="tt_7" type="label" local="false" />
+		<param name="rt_8_9" type="label" local="false" />
+		<param name="tau_8" type="label" local="false" />
+		<param name="tt_8" type="label" local="false" />
+		<param name="rt_1_1" type="label" local="false" />
+		<param name="rt_9_9" type="label" local="false" />
+		<param name="tau_9" type="label" local="false" />
+		<param name="tt_9" type="label" local="false" />
+		<param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" />
+		<bind component="p_template" as="p2">
+			<map key="rt_0">rt_1_2</map>
+			<map key="rt_1">rt_2_3</map>
+			<map key="tau">tau_1</map>
+			<map key="tt">tt_1</map>
+			<map key="t">t</map>
+		</bind>
+		<bind component="p_template" as="p3">
+			<map key="rt_0">rt_2_3</map>
+			<map key="rt_1">rt_3_4</map>
+			<map key="tau">tau_2</map>
+			<map key="tt">tt_2</map>
+			<map key="t">t</map>
+		</bind>
+		<bind component="p_template" as="p4">
+			<map key="rt_0">rt_3_4</map>
+			<map key="rt_1">rt_4_5</map>
+			<map key="tau">tau_3</map>
+			<map key="tt">tt_3</map>
+			<map key="t">t</map>
+		</bind>
+		<bind component="p_template" as="p5">
+			<map key="rt_0">rt_4_5</map>
+			<map key="rt_1">rt_5_6</map>
+			<map key="tau">tau_4</map>
+			<map key="tt">tt_4</map>
+			<map key="t">t</map>
+		</bind>
+		<bind component="p_template" as="p6">
+			<map key="rt_0">rt_5_6</map>
+			<map key="rt_1">rt_6_7</map>
+			<map key="tau">tau_5</map>
+			<map key="tt">tt_5</map>
+		</bind>
+		<bind component="p_template" as="p7">
+			<map key="rt_0">rt_6_7</map>
+			<map key="rt_1">rt_7_8</map>
+			<map key="tau">tau_6</map>
+			<map key="tt">tt_6</map>
+		</bind>
+		<bind component="p_template" as="p8">
+			<map key="rt_0">rt_7_8</map>
+			<map key="rt_1">rt_8_9</map>
+			<map key="tau">tau_7</map>
+			<map key="tt">tt_7</map>
+			<map key="t">t</map>
+		</bind>
+		<bind component="p_template" as="p1">
+			<map key="rt_0">rt_1_1</map>
+			<map key="rt_1">rt_1_2</map>
+			<map key="tau">tau_1</map>
+			<map key="tt">tt_1</map>
+			<map key="t">t</map>
+		</bind>
+		<bind component="p_template" as="p9">
+			<map key="rt_0">rt_8_9</map>
+			<map key="rt_1">rt_9_9</map>
+			<map key="tau">tau_9</map>
+			<map key="tt">tt_9</map>
+			<map key="t">t</map>
+		</bind>
+	</component>
+</sspaceex>

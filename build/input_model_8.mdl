@@ -1,0 +1,105 @@
+
+#Variables
+rod_6_x
+t
+c
+#End
+
+
+#Location
+Locname: out
+
+LocId: 1
+
+Inv: rod_6_x <= 10.0
+
+Flow:
+    rod_6_x = c
+    t = 1.0
+    c = 0.0
+#End
+
+Transition:
+
+    Dest: in
+
+    DestId: 2
+
+    Label: add_6
+
+    Guard: rod_6_x >= 1.0
+
+    Reset:
+
+        rod_6_x' = 0.0
+
+    #End
+
+#End
+#End
+#Location
+Locname: in
+
+LocId: 2
+
+Inv: rod_6_x <= 10000.0
+
+Flow:
+    rod_6_x = c
+    t = 1.0
+    c = 0.0
+#End
+
+Transition:
+
+    Dest: recover
+
+    DestId: 3
+
+    Label: remove_6
+
+    Guard: true
+
+    Reset:
+
+    #End
+
+#End
+#End
+#Location
+Locname: recover
+
+LocId: 3
+
+Inv: rod_6_x <= 10000.0
+
+Flow:
+    rod_6_x = c
+    t = 1.0
+    c = 0.0
+#End
+
+Transition:
+
+    Dest: out
+
+    DestId: 1
+
+    Label: recovery_6
+
+    Guard: true
+
+    Reset:
+
+    #End
+
+#End
+#End
+
+#Init
+
+loc=out: rod_6_x = 0.0 & c <= 1.1 & c >= 0.9 & t = 0.0 & c >= 0.9 & c <= 1.1
+
+#Forbidden
+
+recover: true

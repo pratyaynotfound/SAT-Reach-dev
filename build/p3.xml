@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sspaceex version="0.2" math="Spaceex">
+ <component id="p_template">
+  <param name="p3_x" type="real" local="true" d1="1" d2="1" dynamics="any"/>
+  <param name="p3_y" type="real" local="true" d1="1" d2="1" dynamics="any"/>
+  <param name="p3_z" type="real" local="true" d1="1" d2="1" dynamics="any"/>
+  <param name="t" type="real" local="false" d1="1" d2="1" dynamics="any"/>
+  <param name="rt_2_3" type="label" local="false"/>
+  <param name="rt_3_4" type="label" local="false"/>
+  <param name="tau_2" type="label" local="false"/>
+  <param name="tt_2" type="label" local="false"/>
+  <location id="1" name="s1">
+   <flow>p3_x&apos;==1 &amp; p3_y&apos;==1 &amp; p3_z&apos;==1 &amp; t&apos;==1</flow>
+  </location>
+  <location id="2" name="s2">
+   <flow>p3_x&apos;==1 &amp; p3_y&apos;==1 &amp; p3_z&apos;==1 &amp; t&apos;==1</flow>
+  </location>
+  <location id="3" name="s3">
+   <flow>p3_x&apos;==1 &amp; p3_y&apos;==1 &amp; p3_z&apos;==1&amp; t&apos;==1</flow>
+  </location>
+  <location id="4" name="s4">
+   <flow>p3_x&apos;==1 &amp; p3_y&apos;==1 &amp; p3_z&apos;==1&amp; t&apos;==1</flow>
+  </location>
+  <location id="5" name="s5">
+   <flow>p3_x&apos;==1 &amp; p3_y&apos;==1 &amp; p3_z&apos;==1&amp; t&apos;==1</flow>
+  </location>
+  <location id="6" name="s6">
+   <flow>p3_x&apos;==1 &amp; p3_y&apos;==1 &amp; p3_z&apos;==1&amp; t&apos;==1</flow>
+  </location>
+  <transition source="1" target="2">
+   <label>rt_2_3</label>
+   <guard>p3_x&lt;=2</guard>
+   <assignment>p3_x:=0</assignment>
+  </transition>
+  <transition source="2" target="3">
+   <label>tau_2</label>
+   <guard>p3_x==20&amp;p3_z&lt;=620</guard>
+  </transition>
+  <transition source="2" target="4">
+   <label>rt_3_4</label>
+   <guard>p3_x==20&amp;p3_z&gt;=620</guard>
+  </transition>
+  <transition source="3" target="4">
+   <label>rt_3_4</label>
+   <guard>p3_z&lt;=620</guard>
+  </transition>
+  <transition source="4" target="5">
+   <label>tt_2</label>
+   <assignment>p3_x:=0&amp;p3_z:=0</assignment>
+  </transition>
+  <transition source="5" target="1">
+   <label>rt_3_4</label>
+   <guard>p3_x==20&amp;p3_y&gt;=620</guard>
+  </transition>
+  <transition source="5" target="6">
+   <label>tau_2</label>
+   <guard>p3_x==20&amp;p3_y&lt;=620</guard>
+  </transition>
+  <transition source="6" target="1">
+   <label>rt_3_4</label>
+   <guard>p3_y&lt;=620</guard>
+   <assignment>p3_x:=0</assignment>
+  </transition>
+ </component>
+</sspaceex>

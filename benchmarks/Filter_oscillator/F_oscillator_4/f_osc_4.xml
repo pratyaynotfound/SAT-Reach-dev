@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+  <component id="osc_w_4th_order">
+    <param name="p" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="q" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="x1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="x2" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="x3" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="z" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="t" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <location id="1" name="loc2" x="255.0" y="122.0">
+      <note>Location constraints: loc(osci)==np
+
+State variables: [p,y,x1,x2,x3,z]
+real parts of Eigenvalues: [-2,-5,-5,-5,-5,-1], imag parts of Eigenvalues: [0,0,0,1.36727e-07,-1.36727e-07,0]
+Eigenvectors (columns): [
+-0.103995,-3.88578e-16,-5.35965e-09,-2.55847e-23,4.25848e-16,0
+9.69273e-17,9.3023e-17,1.26508e-09,2.69942e-24,-9.3023e-17,1
+-0.173325,-4.16334e-16,-5.16267e-09,2.29437e-23,4.50695e-16,8.32667e-17
+-0.288875,-2.498e-15,-3.37088e-08,-2.96233e-23,-9.90125e-16,8.32667e-17
+-0.481458,-6.22283e-08,0.846283,-4.58241e-08,2.1759e-16,8.32667e-17
+-0.80243,-1.67575,-2.27896e+07,-2.80439e-09,1.67575,8.32667e-17
+]</note>
+      <invariant>p &lt;= 0 &amp; q+0.714286*p &gt;= 0</invariant>
+      <flow>p' == -2*p+1.4 &amp; q' == -1*q-0.7 &amp; x1' == 5*p-5*x1 &amp; x2' == 5*x1-5*x2 &amp; x3' == 5*x2-5*x3 &amp; z' == 5*x3-5*z &amp; t'==1</flow>
+    </location>
+    <location id="2" name="loc1" x="689.0" y="124.0">
+      <note>Location constraints: loc(osci)==nn
+
+State variables: [p,q,x1,x2,x3,z]
+real parts of Eigenvalues: [-2,-5,-5,-5,-5,-1], imag parts of Eigenvalues: [0,0,0,1.36727e-07,-1.36727e-07,0]
+Eigenvectors (columns): [
+-0.103995,-3.88578e-16,-5.35965e-09,-2.55847e-23,4.25848e-16,0
+9.69273e-17,9.3023e-17,1.26508e-09,2.69942e-24,-9.3023e-17,1
+-0.173325,-4.16334e-16,-5.16267e-09,2.29437e-23,4.50695e-16,8.32667e-17
+-0.288875,-2.498e-15,-3.37088e-08,-2.96233e-23,-9.90125e-16,8.32667e-17
+-0.481458,-6.22283e-08,0.846283,-4.58241e-08,2.1759e-16,8.32667e-17
+-0.80243,-1.67575,-2.27896e+07,-2.80439e-09,1.67575,8.32667e-17
+]</note>
+      <invariant>p &lt;= 0 &amp; q+0.714286*p &lt;= 0</invariant>
+      <flow>p' == -2*p-1.4 &amp; q' == -1*q+0.7 &amp; x1' == 5*p-5*x1 &amp; x2' == 5*x1-5*x2 &amp; x3' == 5*x2-5*x3 &amp; z' == 5*x3-5*z &amp; t'==1</flow>
+    </location>
+    <location id="3" name="loc3" x="256.0" y="414.0" width="244.0" height="64.0">
+      <note>Location constraints: loc(osci)==pp
+
+State variables: [p,q,x1,x2,x3,z]
+real parts of Eigenvalues: [-2,-5,-5,-5,-5,-1], imag parts of Eigenvalues: [0,0,0,1.36727e-07,-1.36727e-07,0]
+Eigenvectors (columns): [
+-0.103995,-3.88578e-16,-5.35965e-09,-2.55847e-23,4.25848e-16,0
+9.69273e-17,9.3023e-17,1.26508e-09,2.69942e-24,-9.3023e-17,1
+-0.173325,-4.16334e-16,-5.16267e-09,2.29437e-23,4.50695e-16,8.32667e-17
+-0.288875,-2.498e-15,-3.37088e-08,-2.96233e-23,-9.90125e-16,8.32667e-17
+-0.481458,-6.22283e-08,0.846283,-4.58241e-08,2.1759e-16,8.32667e-17
+-0.80243,-1.67575,-2.27896e+07,-2.80439e-09,1.67575,8.32667e-17
+]</note>
+      <invariant>p &gt;= 0 &amp; q+0.714286*p &gt;= 0</invariant>
+      <flow>p' == -2*p+1.4 &amp; q' == -1*q-0.7 &amp; x1' == 5*p-5*x1 &amp; x2' == 5*x1-5*x2 &amp; x3' == 5*x2-5*x3 &amp; z' == 5*x3-5*z &amp; t'==1</flow>
+    </location>
+    <location id="4" name="loc4" x="693.0" y="414.0" width="246.0" height="62.0">
+      <note>Location constraints: loc(osci)==pn
+
+State variables: [p,q,x1,x2,x3,z]
+real parts of Eigenvalues: [-2,-5,-5,-5,-5,-1], imag parts of Eigenvalues: [0,0,0,1.36727e-07,-1.36727e-07,0]
+Eigenvectors (columns): [
+-0.103995,-3.88578e-16,-5.35965e-09,-2.55847e-23,4.25848e-16,0
+9.69273e-17,9.3023e-17,1.26508e-09,2.69942e-24,-9.3023e-17,1
+-0.173325,-4.16334e-16,-5.16267e-09,2.29437e-23,4.50695e-16,8.32667e-17
+-0.288875,-2.498e-15,-3.37088e-08,-2.96233e-23,-9.90125e-16,8.32667e-17
+-0.481458,-6.22283e-08,0.846283,-4.58241e-08,2.1759e-16,8.32667e-17
+-0.80243,-1.67575,-2.27896e+07,-2.80439e-09,1.67575,8.32667e-17
+]</note>
+      <invariant>p &gt;= 0 &amp; q+0.714286*p &lt;= 0</invariant>
+      <flow>p' == -2*p-1.4 &amp; q' == -1*q+0.7 &amp; x1' == 5*p-5*x1 &amp; x2' == 5*x1-5*x2 &amp; x3' == 5*x2-5*x3 &amp; z' == 5*x3-5*z &amp; t'==1</flow>
+    </location>
+    <transition source="3" target="4">
+      <guard>q+0.714286*p == 0 &amp; p &gt;= 0</guard>
+      <assignment>p' == p &amp; q' == q &amp; x1' == x1 &amp; x2' == x2 &amp; x3' == x3 &amp; z' == z</assignment>
+      <labelposition x="-91.0" y="9.0" width="188.0" height="58.0" />
+    </transition>
+    <transition source="4" target="2">
+      <guard>p == 0 &amp; 0.714286*p+q &lt;= 0</guard>
+      <assignment>p' == p &amp; q' == q &amp; x1' == x1 &amp; x2' == x2 &amp; x3' == x3 &amp; z' == z</assignment>
+      <labelposition x="-177.0" y="-31.0" width="232.0" height="58.0" />
+    </transition>
+    <transition source="2" target="1">
+      <guard>q+0.714286*p  == 0 &amp; p &lt;= 0</guard>
+      <assignment>p' == p &amp; q' == q &amp; x1' == x1 &amp; x2' == x2 &amp; x3' == x3 &amp; z' == z</assignment>
+      <labelposition x="-117.0" y="-64.0" width="234.0" height="58.0" />
+    </transition>
+    <transition source="1" target="3">
+      <guard>p == 0 &amp; 0.714286*p+q &gt;= 0</guard>
+      <assignment>p' == p &amp; q' == q &amp; x1' == x1 &amp; x2' == x2 &amp; x3' == x3 &amp; z' == z</assignment>
+      <labelposition x="-100.0" y="-45.0" width="150.0" height="70.0" />
+    </transition>
+  </component>
+  <component id="system">
+    <param name="p" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="q" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="x1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="x2" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="x3" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="z" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <bind component="osc_w_4th_order" as="osc_w_4th_order_1" x="512.0" y="208.0">
+      <map key="p">p</map>
+      <map key="q">q</map>
+      <map key="x1">x1</map>
+      <map key="x2">x2</map>
+      <map key="x3">x3</map>
+      <map key="z">z</map>
+      <map key="t">t</map>
+    </bind>
+  </component>
+</sspaceex>
+

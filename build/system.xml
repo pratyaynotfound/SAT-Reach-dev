@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sspaceex version="0.2" math="Spaceex">
+ <component id="system">
+  <param name="add_1" type="label" local="false"/>
+  <param name="remove_1" type="label" local="false"/>
+  <param name="recovery_1" type="label" local="false"/>
+  <param name="add_2" type="label" local="false"/>
+  <param name="remove_2" type="label" local="false"/>
+  <param name="recovery_2" type="label" local="false"/>
+  <param name="add_3" type="label" local="false"/>
+  <param name="remove_3" type="label" local="false"/>
+  <param name="recovery_3" type="label" local="false"/>
+  <param name="add_4" type="label" local="false"/>
+  <param name="remove_4" type="label" local="false"/>
+  <param name="recovery_4" type="label" local="false"/>
+  <param name="add_5" type="label" local="false"/>
+  <param name="remove_5" type="label" local="false"/>
+  <param name="recovery_5" type="label" local="false"/>
+  <param name="add_6" type="label" local="false"/>
+  <param name="remove_6" type="label" local="false"/>
+  <param name="recovery_6" type="label" local="false"/>
+  <param name="add_7" type="label" local="false"/>
+  <param name="remove_7" type="label" local="false"/>
+  <param name="recovery_7" type="label" local="false"/>
+  <param name="add_8" type="label" local="false"/>
+  <param name="remove_8" type="label" local="false"/>
+  <param name="recovery_8" type="label" local="false"/>
+  <param name="add_9" type="label" local="false"/>
+  <param name="remove_9" type="label" local="false"/>
+  <param name="recovery_9" type="label" local="false"/>
+  <param name="add_10" type="label" local="false"/>
+  <param name="remove_10" type="label" local="false"/>
+  <param name="recovery_10" type="label" local="false"/>
+  <param name="c" type="real" local="false" d1="1" d2="1" dynamics="const"/>
+  <param name="t" type="real" local="false" d1="1" d2="1" dynamics="any"/>
+  <bind component="rod_template" as="rod_1">
+   <map key="add">add_1</map>
+   <map key="remove">remove_1</map>
+   <map key="c">c</map>
+   <map key="t">t</map>
+   <map key="recovery">recovery_1</map>
+  </bind>
+  <bind component="rod_template" as="rod_2">
+   <map key="add">add_2</map>
+   <map key="remove">remove_2</map>
+   <map key="c">c</map>
+   <map key="t">t</map>
+   <map key="recovery">recovery_2</map>
+  </bind>
+  <bind component="rod_template" as="rod_3">
+   <map key="add">add_3</map>
+   <map key="remove">remove_3</map>
+   <map key="c">c</map>
+   <map key="t">t</map>
+   <map key="recovery">recovery_3</map>
+  </bind>
+  <bind component="rod_template" as="rod_4">
+   <map key="add">add_4</map>
+   <map key="remove">remove_4</map>
+   <map key="c">c</map>
+   <map key="t">t</map>
+   <map key="recovery">recovery_4</map>
+  </bind>
+  <bind component="rod_template" as="rod_5">
+   <map key="add">add_5</map>
+   <map key="remove">remove_5</map>
+   <map key="c">c</map>
+   <map key="t">t</map>
+   <map key="recovery">recovery_5</map>
+  </bind>
+  <bind component="rod_template" as="rod_6">
+   <map key="add">add_6</map>
+   <map key="remove">remove_6</map>
+   <map key="recovery">recovery_6</map>
+   <map key="c">c</map>
+   <map key="t">t</map>
+  </bind>
+  <bind component="rod_template" as="rod_7">
+   <map key="add">add_7</map>
+   <map key="remove">remove_7</map>
+   <map key="recovery">recovery_7</map>
+   <map key="c">c</map>
+   <map key="t">t</map>
+  </bind>
+  <bind component="rod_template" as="rod_8">
+   <map key="add">add_8</map>
+   <map key="remove">remove_8</map>
+   <map key="recovery">recovery_8</map>
+   <map key="c">c</map>
+   <map key="t">t</map>
+  </bind>
+  <bind component="rod_template" as="rod_9">
+   <map key="add">add_9</map>
+   <map key="remove">remove_9</map>
+   <map key="recovery">recovery_9</map>
+   <map key="c">c</map>
+   <map key="t">t</map>
+  </bind>
+  <bind component="rod_template" as="rod_10">
+   <map key="add">add_10</map>
+   <map key="remove">remove_10</map>
+   <map key="recovery">recovery_10</map>
+   <map key="c">c</map>
+   <map key="t">t</map>
+  </bind>
+  <bind component="controller_template" as="controller">
+   <map key="add_1">add_1</map>
+   <map key="remove_1">remove_1</map>
+   <map key="add_2">add_2</map>
+   <map key="remove_2">remove_2</map>
+   <map key="add_3">add_3</map>
+   <map key="remove_3">remove_3</map>
+   <map key="add_4">add_4</map>
+   <map key="remove_4">remove_4</map>
+   <map key="add_5">add_5</map>
+   <map key="remove_5">remove_5</map>
+   <map key="add_6">add_6</map>
+   <map key="remove_6">remove_6</map>
+   <map key="add_7">add_7</map>
+   <map key="remove_7">remove_7</map>
+   <map key="add_8">add_8</map>
+   <map key="remove_8">remove_8</map>
+   <map key="add_9">add_9</map>
+   <map key="remove_9">remove_9</map>
+   <map key="add_10">add_10</map>
+   <map key="remove_10">remove_10</map>
+   <map key="c">c</map>
+   <map key="t">t</map>
+  </bind>
+ </component>
+</sspaceex>

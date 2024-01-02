@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+  <component id="osc_w_32th_order">
+    <param name="p" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="q" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="aax1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="aax2" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="aax3" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="ax1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="abx1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="abx2" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="abx3" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="x1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="bax1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="bax2" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="bax3" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="bx1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="bbx1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="bbx2" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="bbx3" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="x2" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="cax1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="cax2" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="cax3" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="cx1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="cbx1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="cbx2" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="cbx3" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="x3" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="dax1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="dax2" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="dax3" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="dx1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="dbx1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="dbx2" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="dbx3" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="z" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="t" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <location id="1" name="loc2" x="226.0" y="108.0">
+      <invariant>p &lt;= 0 &amp; q+0.714286*p &gt;= 0</invariant>
+      <flow>p' == -2*p+1.4 &amp; q' == -1*q-0.7 &amp; aax1' == 5*p-5*aax1 &amp; aax2' == 5*aax1-5*aax2 &amp; aax3' == 5*aax2-5*aax3 &amp; ax1' == 5*aax3-5*ax1 &amp; abx1' == 5*ax1-5*abx1 &amp; abx2' == 5*abx1-5*abx2 &amp; abx3' == 5*abx2-5*abx3 &amp; x1' == 5*abx3-5*x1 &amp; bax1' == 5*x1-5*bax1 &amp; bax2' == 5*bax1-5*bax2 &amp; bax3' == 5*bax2-5*bax3 &amp; bx1' == 5*bax3-5*bx1 &amp; bbx1' == 5*bx1-5*bbx1 &amp; bbx2' == 5*bbx1-5*bbx2 &amp; bbx3' == 5*bbx2-5*bbx3 &amp; x2' == 5*bbx3-5*x2 &amp; cax1' == 5*x2-5*cax1 &amp; cax2' == 5*cax1-5*cax2 &amp; cax3' == 5*cax2-5*cax3 &amp; cx1' == 5*cax3-5*cx1 &amp; cbx1' == 5*cx1-5*cbx1 &amp; cbx2' == 5*cbx1-5*cbx2 &amp; cbx3' == 5*cbx2-5*cbx3 &amp; x3' == 5*cbx3-5*x3 &amp; dax1' == 5*x3-5*dax1 &amp; dax2' == 5*dax1-5*dax2 &amp; dax3' == 5*dax2-5*dax3 &amp; dx1' == 5*dax3-5*dx1 &amp; dbx1' == 5*dx1-5*dbx1 &amp; dbx2' == 5*dbx1-5*dbx2 &amp; dbx3' == 5*dbx2-5*dbx3 &amp; z' == 5*dbx3-5*z &amp; t'== 1</flow>
+    </location>
+    <location id="2" name="loc1" x="718.0" y="108.0">
+      <invariant>p &lt;= 0 &amp; q+0.714286*p &lt;= 0</invariant>
+      <flow>p' == -2*p-1.4 &amp; q' == -1*q+0.7 &amp; aax1' == 5*p-5*aax1 &amp; aax2' == 5*aax1-5*aax2 &amp; aax3' == 5*aax2-5*aax3 &amp; ax1' == 5*aax3-5*ax1 &amp; abx1' == 5*ax1-5*abx1 &amp; abx2' == 5*abx1-5*abx2 &amp; abx3' == 5*abx2-5*abx3 &amp; x1' == 5*abx3-5*x1 &amp; bax1' == 5*x1-5*bax1 &amp; bax2' == 5*bax1-5*bax2 &amp; bax3' == 5*bax2-5*bax3 &amp; bx1' == 5*bax3-5*bx1 &amp; bbx1' == 5*bx1-5*bbx1 &amp; bbx2' == 5*bbx1-5*bbx2 &amp; bbx3' == 5*bbx2-5*bbx3 &amp; x2' == 5*bbx3-5*x2 &amp; cax1' == 5*x2-5*cax1 &amp; cax2' == 5*cax1-5*cax2 &amp; cax3' == 5*cax2-5*cax3 &amp; cx1' == 5*cax3-5*cx1 &amp; cbx1' == 5*cx1-5*cbx1 &amp; cbx2' == 5*cbx1-5*cbx2 &amp; cbx3' == 5*cbx2-5*cbx3 &amp; x3' == 5*cbx3-5*x3 &amp; dax1' == 5*x3-5*dax1 &amp; dax2' == 5*dax1-5*dax2 &amp; dax3' == 5*dax2-5*dax3 &amp; dx1' == 5*dax3-5*dx1 &amp; dbx1' == 5*dx1-5*dbx1 &amp; dbx2' == 5*dbx1-5*dbx2 &amp; dbx3' == 5*dbx2-5*dbx3 &amp; z' == 5*dbx3-5*z &amp; t'== 1</flow>
+    </location>
+    <location id="3" name="loc3" x="227.0" y="468.0">
+      <invariant>p &gt;= 0 &amp; q+0.714286*p &gt;= 0</invariant>
+      <flow>p' == -2*p+1.4 &amp; q' == -1*q-0.7 &amp; aax1' == 5*p-5*aax1 &amp; aax2' == 5*aax1-5*aax2 &amp; aax3' == 5*aax2-5*aax3 &amp; ax1' == 5*aax3-5*ax1 &amp; abx1' == 5*ax1-5*abx1 &amp; abx2' == 5*abx1-5*abx2 &amp; abx3' == 5*abx2-5*abx3 &amp; x1' == 5*abx3-5*x1 &amp; bax1' == 5*x1-5*bax1 &amp; bax2' == 5*bax1-5*bax2 &amp; bax3' == 5*bax2-5*bax3 &amp; bx1' == 5*bax3-5*bx1 &amp; bbx1' == 5*bx1-5*bbx1 &amp; bbx2' == 5*bbx1-5*bbx2 &amp; bbx3' == 5*bbx2-5*bbx3 &amp; x2' == 5*bbx3-5*x2 &amp; cax1' == 5*x2-5*cax1 &amp; cax2' == 5*cax1-5*cax2 &amp; cax3' == 5*cax2-5*cax3 &amp; cx1' == 5*cax3-5*cx1 &amp; cbx1' == 5*cx1-5*cbx1 &amp; cbx2' == 5*cbx1-5*cbx2 &amp; cbx3' == 5*cbx2-5*cbx3 &amp; x3' == 5*cbx3-5*x3 &amp; dax1' == 5*x3-5*dax1 &amp; dax2' == 5*dax1-5*dax2 &amp; dax3' == 5*dax2-5*dax3 &amp; dx1' == 5*dax3-5*dx1 &amp; dbx1' == 5*dx1-5*dbx1 &amp; dbx2' == 5*dbx1-5*dbx2 &amp; dbx3' == 5*dbx2-5*dbx3 &amp; z' == 5*dbx3-5*z &amp; t'== 1</flow>
+    </location>
+    <location id="4" name="loc4" x="720.0" y="466.0">
+      <invariant>p &gt;= 0 &amp; q+0.714286*p &lt;= 0</invariant>
+      <flow>p' == -2*p-1.4 &amp; q' == -1*q+0.7 &amp; aax1' == 5*p-5*aax1 &amp; aax2' == 5*aax1-5*aax2 &amp; aax3' == 5*aax2-5*aax3 &amp; ax1' == 5*aax3-5*ax1 &amp; abx1' == 5*ax1-5*abx1 &amp; abx2' == 5*abx1-5*abx2 &amp; abx3' == 5*abx2-5*abx3 &amp; x1' == 5*abx3-5*x1 &amp; bax1' == 5*x1-5*bax1 &amp; bax2' == 5*bax1-5*bax2 &amp; bax3' == 5*bax2-5*bax3 &amp; bx1' == 5*bax3-5*bx1 &amp; bbx1' == 5*bx1-5*bbx1 &amp; bbx2' == 5*bbx1-5*bbx2 &amp; bbx3' == 5*bbx2-5*bbx3 &amp; x2' == 5*bbx3-5*x2 &amp; cax1' == 5*x2-5*cax1 &amp; cax2' == 5*cax1-5*cax2 &amp; cax3' == 5*cax2-5*cax3 &amp; cx1' == 5*cax3-5*cx1 &amp; cbx1' == 5*cx1-5*cbx1 &amp; cbx2' == 5*cbx1-5*cbx2 &amp; cbx3' == 5*cbx2-5*cbx3 &amp; x3' == 5*cbx3-5*x3 &amp; dax1' == 5*x3-5*dax1 &amp; dax2' == 5*dax1-5*dax2 &amp; dax3' == 5*dax2-5*dax3 &amp; dx1' == 5*dax3-5*dx1 &amp; dbx1' == 5*dx1-5*dbx1 &amp; dbx2' == 5*dbx1-5*dbx2 &amp; dbx3' == 5*dbx2-5*dbx3 &amp; z' == 5*dbx3-5*z &amp; t'== 1</flow>
+    </location>
+    <transition source="3" target="4">
+      <guard>q+0.714286*p == 0 &amp; p &gt;= 0</guard>
+      <assignment>p' == p &amp; q' == q &amp; aax1' == aax1 &amp; aax2' == aax2 &amp; aax3' == aax3 &amp; ax1' == ax1 &amp; abx1' == abx1 &amp; abx2' == abx2 &amp; abx3' == abx3 &amp; x1' == x1 &amp; bax1' == bax1 &amp; bax2' == bax2 &amp; bax3' == bax3 &amp; bx1' == bx1 &amp; bbx1' == bbx1 &amp; bbx2' == bbx2 &amp; bbx3' == bbx3 &amp; x2' == x2 &amp; cax1' == cax1 &amp; cax2' == cax2 &amp; cax3' == cax3 &amp; cx1' == cx1 &amp; cbx1' == cbx1 &amp; cbx2' == cbx2 &amp; cbx3' == cbx3 &amp; x3' == x3 &amp; dax1' == dax1 &amp; dax2' == dax2 &amp; dax3' == dax3 &amp; dx1' == dx1 &amp; dbx1' == dbx1 &amp; dbx2' == dbx2 &amp; dbx3' == dbx3 &amp; z' == z</assignment>
+      <labelposition x="0.0" y="0.0" />
+    </transition>
+    <transition source="4" target="2">
+      <guard>p == 0 &amp; 0.714286*p+q &lt;= 0</guard>
+      <assignment>p' == p &amp; q' == q &amp; aax1' == aax1 &amp; aax2' == aax2 &amp; aax3' == aax3 &amp; ax1' == ax1 &amp; abx1' == abx1 &amp; abx2' == abx2 &amp; abx3' == abx3 &amp; x1' == x1 &amp; bax1' == bax1 &amp; bax2' == bax2 &amp; bax3' == bax3 &amp; bx1' == bx1 &amp; bbx1' == bbx1 &amp; bbx2' == bbx2 &amp; bbx3' == bbx3 &amp; x2' == x2 &amp; cax1' == cax1 &amp; cax2' == cax2 &amp; cax3' == cax3 &amp; cx1' == cx1 &amp; cbx1' == cbx1 &amp; cbx2' == cbx2 &amp; cbx3' == cbx3 &amp; x3' == x3 &amp; dax1' == dax1 &amp; dax2' == dax2 &amp; dax3' == dax3 &amp; dx1' == dx1 &amp; dbx1' == dbx1 &amp; dbx2' == dbx2 &amp; dbx3' == dbx3 &amp; z' == z</assignment>
+      <labelposition x="0.0" y="0.0" />
+    </transition>
+    <transition source="2" target="1">
+      <guard>q+0.714286*p == 0 &amp; p &lt;= 0</guard>
+      <assignment>p' == p &amp; q' == q &amp; aax1' == aax1 &amp; aax2' == aax2 &amp; aax3' == aax3 &amp; ax1' == ax1 &amp; abx1' == abx1 &amp; abx2' == abx2 &amp; abx3' == abx3 &amp; x1' == x1 &amp; bax1' == bax1 &amp; bax2' == bax2 &amp; bax3' == bax3 &amp; bx1' == bx1 &amp; bbx1' == bbx1 &amp; bbx2' == bbx2 &amp; bbx3' == bbx3 &amp; x2' == x2 &amp; cax1' == cax1 &amp; cax2' == cax2 &amp; cax3' == cax3 &amp; cx1' == cx1 &amp; cbx1' == cbx1 &amp; cbx2' == cbx2 &amp; cbx3' == cbx3 &amp; x3' == x3 &amp; dax1' == dax1 &amp; dax2' == dax2 &amp; dax3' == dax3 &amp; dx1' == dx1 &amp; dbx1' == dbx1 &amp; dbx2' == dbx2 &amp; dbx3' == dbx3 &amp; z' == z</assignment>
+      <labelposition x="0.0" y="0.0" />
+    </transition>
+    <transition source="1" target="3">
+      <guard>p == 0 &amp; 0.714286*p+q &gt;= 0</guard>
+      <assignment>p' == p &amp; q' == q &amp; aax1' == aax1 &amp; aax2' == aax2 &amp; aax3' == aax3 &amp; ax1' == ax1 &amp; abx1' == abx1 &amp; abx2' == abx2 &amp; abx3' == abx3 &amp; x1' == x1 &amp; bax1' == bax1 &amp; bax2' == bax2 &amp; bax3' == bax3 &amp; bx1' == bx1 &amp; bbx1' == bbx1 &amp; bbx2' == bbx2 &amp; bbx3' == bbx3 &amp; x2' == x2 &amp; cax1' == cax1 &amp; cax2' == cax2 &amp; cax3' == cax3 &amp; cx1' == cx1 &amp; cbx1' == cbx1 &amp; cbx2' == cbx2 &amp; cbx3' == cbx3 &amp; x3' == x3 &amp; dax1' == dax1 &amp; dax2' == dax2 &amp; dax3' == dax3 &amp; dx1' == dx1 &amp; dbx1' == dbx1 &amp; dbx2' == dbx2 &amp; dbx3' == dbx3 &amp; z' == z</assignment>
+      <labelposition x="0.0" y="0.0" />
+    </transition>
+  </component>
+  <component id="system">
+    <param name="p" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="q" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="aax1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="aax2" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="aax3" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="ax1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="abx1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="abx2" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="abx3" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="x1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="bax1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="bax2" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="bax3" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="bx1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="bbx1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="bbx2" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="bbx3" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="x2" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="cax1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="cax2" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="cax3" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="cx1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="cbx1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="cbx2" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="cbx3" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="x3" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="dax1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="dax2" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="dax3" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="dx1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="dbx1" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="dbx2" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="dbx3" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="z" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <param name="t" type="real" d1="1" d2="1" local="false" dynamics="any" controlled="true" />
+    <bind component="osc_w_32th_order" as="osc_w_32th_order_1" x="359.0" y="164.0">
+      <map key="p">p</map>
+      <map key="q">q</map>
+      <map key="aax1">aax1</map>
+      <map key="aax2">aax2</map>
+      <map key="aax3">aax3</map>
+      <map key="ax1">ax1</map>
+      <map key="abx1">abx1</map>
+      <map key="abx2">abx2</map>
+      <map key="abx3">abx3</map>
+      <map key="x1">x1</map>
+      <map key="bax1">bax1</map>
+      <map key="bax2">bax2</map>
+      <map key="bax3">bax3</map>
+      <map key="bx1">bx1</map>
+      <map key="bbx1">bbx1</map>
+      <map key="bbx2">bbx2</map>
+      <map key="bbx3">bbx3</map>
+      <map key="x2">x2</map>
+      <map key="cax1">cax1</map>
+      <map key="cax2">cax2</map>
+      <map key="cax3">cax3</map>
+      <map key="cx1">cx1</map>
+      <map key="cbx1">cbx1</map>
+      <map key="cbx2">cbx2</map>
+      <map key="cbx3">cbx3</map>
+      <map key="x3">x3</map>
+      <map key="dax1">dax1</map>
+      <map key="dax2">dax2</map>
+      <map key="dax3">dax3</map>
+      <map key="dx1">dx1</map>
+      <map key="dbx1">dbx1</map>
+      <map key="dbx2">dbx2</map>
+      <map key="dbx3">dbx3</map>
+      <map key="z">z</map>
+      <map key="t">t</map>
+    </bind>
+  </component>
+</sspaceex>
+

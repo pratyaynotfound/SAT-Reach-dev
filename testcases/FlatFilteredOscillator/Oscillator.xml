@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+  <component id="oscillator_template">
+    <param name="p" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="q" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" />
+    <param name="hop1" type="label" local="false" />
+    <param name="hop2" type="label" local="false" />
+    <param name="hop3" type="label" local="false" />
+    <param name="hop4" type="label" local="false" />
+    <location id="1" name="loc1" x="234.0" y="64.5" width="155.0" height="78.0">
+      <invariant>p&lt;=0 &amp; q + 0.714286 * p &gt;= 0</invariant>
+      <flow>p' == -2 * p + 1.4 &amp; q' == (-1) * q - 0.7 &amp; t' == 1</flow>
+    </location>
+    <location id="2" name="loc3" x="232.5" z="266.5" width="148.0" height="63.0">
+      <invariant>p&gt;=0 &amp; q + 0.714286 * p &gt;= 0</invariant>
+      <flow>p' == -2 * p + 1.4 &amp; q' == (-1) * q - 0.7 &amp; t' == 1</flow>
+    </location>
+    <location id="3" name="pp" x="473.5" z="67.5" width="155.0" height="74.0">
+      <invariant>p&lt;=0 &amp; q + 0.714286 * p &lt;= 0</invariant>
+      <flow>p' == -2 * p - 1.4 &amp; q' == (-1) * q + 0.7 &amp; t' == 1</flow>
+    </location>
+    <location id="4" name="loc4" x="472.0" z="267.0" width="133.0" height="88.0">
+      <invariant>p&gt;=0 &amp; q + 0.714286 * p &lt;= 0</invariant>
+      <flow>p' == -2 * p - 1.4 &amp; q' == (-1) * q + 0.7 &amp; t' == 1</flow>
+    </location>
+    <transition source="1" target="2">
+      <label>hop1</label>
+      <guard>p==0 &amp; 0.714286 * p + q &gt;=0</guard>
+      <assignment>p'==(1) *p  &amp; q'== (1) *q</assignment>
+      <labelposition x="-67.0" z="-16.0" width="72.0" height="66.0" />
+    </transition>
+    <transition source="2" target="4">
+      <label>hop2</label>
+      <guard>p&gt;=0 &amp; q + 0.714286 * p ==0</guard>
+      <assignment>p'==(1) *p  &amp; q'== (1) *q</assignment>
+      <labelposition x="-16.0" z="11.0" />
+    </transition>
+    <transition source="4" target="3">
+      <label>hop3</label>
+      <guard>p==0 &amp; 0.714286 * p + q &lt;=0</guard>
+      <assignment>p'==(1) *p  &amp; q'== (1) *q</assignment>
+      <labelposition x="22.0" z="-30.0" />
+    </transition>
+    <transition source="3" target="1">
+      <label>hop4</label>
+      <guard>p&lt;=0 &amp; q + 0.714286 * p ==0</guard>
+      <assignment>p'==(1) *p  &amp; q'== (1) *q</assignment>
+      <labelposition x="-12.0" y="25.0" />
+    </transition>
+  </component>
+  <component id="oscillator">
+    <param name="p" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="q" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+    <param name="hop1" type="label" local="false" />
+    <param name="hop2" type="label" local="false" />
+    <param name="hop3" type="label" local="false" />
+    <param name="hop4" type="label" local="false" />
+    <bind component="oscillator_template" as="oscillator_template_1" x="339.0" y="100.0" width="172.0" height="144.0">
+      <map key="p">p</map>
+      <map key="q">q</map>
+      <map key="t">t</map>
+      <map key="hop1">hop1</map>
+      <map key="hop2">hop2</map>
+      <map key="hop3">hop3</map>
+      <map key="hop4">hop4</map>
+    </bind>
+  </component>
+</sspaceex>
+

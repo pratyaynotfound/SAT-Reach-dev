@@ -1,0 +1,124 @@
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+    <component id="Process">
+    <param name="x" type="real" local="true" d1="1" d2="1" dynamics="any" />
+    <param name="id" type="real" local="false" d1="1" d2="1" dynamics="const" />
+    <param name="svl" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+    <param name="svr" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+    <location id="1" name="loc1">
+      <flow>x' &lt;= 2.3 &amp; x' &gt;= 1.1  &amp; svl' == 0 &amp; svr'==0</flow>
+    </location>
+    <location id="2" name="loc2">
+      <invariant>x &lt;= 1</invariant>
+      <flow>x' &lt;= 2.3 &amp; x' &gt;= 1.1 &amp; svl' == 0 &amp; svr'==0</flow>
+    </location>
+    <location id="3" name="loc4">
+      <flow>x' &lt;= 2.3 &amp; x' &gt;= 1.1  &amp; svl' == 0 &amp; svr'==0</flow>
+    </location>
+    <location id="4" name="loc3">
+      <flow>x' &lt;= 2.3 &amp; x' &gt;= 1.1 &amp; svl' == 0 &amp; svr'==0</flow>
+    </location>
+    <location id="5" name="loc5">
+      <flow>x' &lt;= 2.3 &amp; x' &gt;= 1.1 &amp; svl' == 0 &amp; svr'==0</flow>
+    </location>
+    <location id="6" name="loc6">
+      <invariant>x &lt;= 1</invariant>
+      <flow>x' &lt;= 2.3 &amp; x' &gt;= 1.1 &amp; svl' == 0 &amp; svr'==0</flow>
+    </location>
+    <location id="7" name="loc7">
+      <flow>x' &lt;= 2.3 &amp; x' &gt;= 1.1 &amp; svl' == 0 &amp; svr'==0</flow>
+    </location>
+     <location id="8" name="loc8">
+      <flow>x' &lt;= 2.3 &amp; x' &gt;= 1.1 &amp; svl' == 0 &amp; svr'==0</flow>
+    </location>
+    <transition source="1" target="2">
+      <label>testl0</label>
+      <guard>svl == 0</guard>
+      <assignment>x = 0 &amp; svl = svl &amp; svr =svr</assignment>
+    </transition>
+    <transition source="2" target="4">
+      <label>setli</label>
+      <assignment>x = 0 &amp; svl = id &amp; svr =svr</assignment>
+    </transition>
+    <transition source="4" target="3">
+      <label>testli</label>
+      <guard>x &gt; 3 &amp; svl == id</guard>
+      <assignment>x = 0 &amp; svl = svl &amp; svr =svr</assignment>
+    </transition>
+    <transition source="3" target="5">
+      <label>t</label>
+      <assignment>x = 0 &amp; svl = svl &amp; svr =svr</assignment>
+    </transition>
+    <transition source="5" target="6">
+      <label>testr0</label>
+      <guard>svr==0</guard>
+      <assignment>x = 0 &amp; svl = svl &amp; svr =svr</assignment>
+    </transition>
+    <transition source="4" target="1">
+      <label>testlni</label>
+      <guard>x &gt; 3 &amp; svl != id</guard>
+      <assignment>x = 0 &amp; svl = svl &amp; svr =svr</assignment>
+    </transition>
+    <transition source="6" target="7">
+      <label>setri</label>
+      <assignment>x = 0 &amp; svr = id &amp; svl = svl</assignment>
+    </transition>
+    <transition source="7" target="8">
+      <label>testri</label>
+      <guard>x &gt; 3 &amp;svr==id</guard>
+      <assignment>x = 0 &amp; svl = svl &amp; svr =svr</assignment>
+    </transition>
+    <transition source="7" target="5">
+      <label>testrgi</label>
+      <guard>x &gt; 3 &amp; svr != id</guard>
+      <assignment>x = 0 &amp; svl = svl &amp; svr =svr</assignment>
+    </transition>
+    <transition source="8" target="1">
+      <label>set0</label>
+      <assignment>x = 0 &amp; svl = 0 &amp; svr=0</assignment>
+    </transition>
+  </component>
+  <component id="sys">
+  <param name="sv0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+  <param name="sv1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+  <param name="sv2" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+  <param name="sv3" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+  <param name="sv4" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+  <param name="sv5" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+  <param name="sv6" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+ <bind component="Process" as="p1" x="334.0" y="65.0">
+    <map key="id">1</map>
+    <map key="svl">sv0</map>
+    <map key="svr">sv1</map>
+ </bind>
+ <bind component="Process" as="p2" x="334.0" y="65.0">
+    <map key="id">2</map>
+    <map key="svl">sv1</map>
+    <map key="svr">sv2</map>
+ </bind>
+ <bind component="Process" as="p3" x="334.0" y="65.0">
+    <map key="id">3</map>
+    <map key="svl">sv2</map>
+    <map key="svr">sv3</map>
+ </bind>
+ <bind component="Process" as="p4" x="334.0" y="65.0">
+    <map key="id">4</map>
+    <map key="svl">sv3</map>
+    <map key="svr">sv4</map>
+ </bind>
+ <bind component="Process" as="p5" x="334.0" y="65.0">
+    <map key="id">5</map>
+    <map key="svl">sv4</map>
+    <map key="svr">sv5</map>
+ </bind>
+ <bind component="Process" as="p6" x="334.0" y="65.0">
+    <map key="id">6</map>
+    <map key="svl">sv5</map>
+    <map key="svr">sv6</map>
+ </bind>
+ <bind component="Process" as="p7" x="334.0" y="65.0">
+    <map key="id">7</map>
+    <map key="svl">sv6</map>
+    <map key="svr">sv0</map>
+ </bind>
+</component>
+</sspaceex>

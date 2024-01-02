@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+	<component id="rod_template">
+		<param name="x" type="real" local="true" d1="1" d2="1" dynamics="any" />
+		<param name="c" type="real" local="false" d1="1" d2="1" dynamics="const" />
+		<param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" />
+		<param name="add_2" type="label" local="false" />
+		<param name="remove_2" type="label" local="false" />
+		<param name="recovery_2" type="label" local="false" />
+		<location id="1" name="out">
+			<invariant>x&lt;=10000 </invariant>
+			<flow>x'== c &amp; t' == 1</flow>
+		</location>
+		<location id="2" name="in">
+			<invariant>x&lt;=10000</invariant>
+			<flow>x'== c &amp; t' == 1</flow>
+		</location>
+		<location id="3" name="recover">
+			<invariant>x&lt;=10000</invariant>
+			<flow>x'== c &amp; t' == 1</flow>
+		</location>
+		<transition source="1" target="2">
+			<label>add_2</label>
+			<guard>x&gt;=1</guard>
+			<assignment>x:=0</assignment>
+		</transition>
+		<transition source="2" target="3">
+			<label>remove_2</label>
+		</transition>
+		<transition source="3" target="1">
+			<label>recovery_2</label>
+		</transition>
+	</component>
+	<component id="system">
+		<param name="add_2" type="label" local="false" />
+		<param name="remove_2" type="label" local="false" />
+		<param name="recovery_2" type="label" local="false" />
+		<param name="c" type="real" local="false" d1="1" d2="1" dynamics="const" />
+		<param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" />
+		<bind component="rod_template" as="rod_2">
+			<map key="add_2">add_2</map>
+			<map key="remove_2">remove_2</map>
+			<map key="c">c</map>
+			<map key="t">t</map>
+			<map key="recovery_2">recovery_2</map>
+		</bind>
+	</component>
+</sspaceex>

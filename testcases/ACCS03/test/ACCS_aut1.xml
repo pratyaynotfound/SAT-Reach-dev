@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+<component id="aut1">
+<param name="x0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+<param name="x1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+<param name="c1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+<param name="c2" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+<param name="c3" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+<param name="d01" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+<param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+<param name="tau" type="label" local="false" />
+<location id="0" name="crs" >
+<flow> x1' == c1 &amp; d01' == c2 &amp; t'==1</flow>
+<invariant> d01 &gt;= 1 &amp; c1 &gt;= 0 &amp; c1 &lt;= 100 &amp; c2 &gt;= -1 &amp; c2 &lt;= 1 </invariant>
+</location>
+<location id="1" name="rcv" >
+<flow> x1' == c1 &amp; d01' == c3 &amp; t'==1</flow>
+<invariant> d01 &lt;= 3 &amp; c3 &gt;= 1 &amp; c3 &lt;= 3 &amp; c1 &gt;= 0 &amp; c1 &lt;= 100 </invariant>
+</location>
+<location id="2" name="crash" >
+<flow> x1' == 0 &amp; d01' == 0 &amp; t'==1</flow>
+</location>
+<transition source="0" target="1" >
+<guard> d01 &lt;= 2 &amp; d01 == x0 - x1 </guard>
+<assignment> x1 = x1  &amp; d01 = x0 - x1</assignment>
+<label>tau</label>
+</transition>
+<transition source="1" target="0" >
+<guard> d01 &gt;= 2 &amp; d01 == x0 - x1</guard>
+<assignment>x1 = x1 &amp; d01 = x0 - x1 </assignment>
+<label>tau</label>
+</transition>
+<transition source="0" target="0" >
+<guard> d01 == x0 - x1 </guard>
+<assignment>x1 = x1  &amp;d01 = x0 - x1</assignment>
+<label>tau</label>
+</transition>
+<transition source="1" target="1" >
+<guard> d01 == x0 - x1</guard>
+<assignment>x1 = x1  &amp;d01 = x0 - x1</assignment>
+<label>tau</label>
+</transition>
+<transition source="0" target="2" >
+<guard>d01 == x0 - x1  &amp; x0 &lt;= x1 </guard>
+<label>tau</label>
+</transition>
+<transition source="1" target="2" >
+<guard> d01 == x0 - x1  &amp; x0 &lt;= x1
+</guard>
+<label>tau</label>
+</transition>
+</component>
+
+<component id="system">
+<param name="x0" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+<param name="x1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+<param name="c1" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+<param name="c2" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+<param name="c3" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="false" />
+<param name="d01" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+<param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" controlled="true" />
+<param name="tau" type="label" local="false" />
+<bind component="aut1" as="aut1">
+<map key="x0">x0</map>
+<map key="x1">x1</map>
+<map key="c1">c1</map>
+<map key="c2">c2</map>
+<map key="c3">c3</map>
+<map key="d01">d01</map>
+<map key="tau">tau</map>
+<map key="t">t</map>
+</bind>
+</component>
+</sspaceex>

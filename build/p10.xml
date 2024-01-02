@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<sspaceex version="0.2" math="Spaceex">
+ <component id="p_template">
+  <param name="p10_x" type="real" local="true" d1="1" d2="1" dynamics="any"/>
+  <param name="p10_y" type="real" local="true" d1="1" d2="1" dynamics="any"/>
+  <param name="p10_z" type="real" local="true" d1="1" d2="1" dynamics="any"/>
+  <param name="t" type="real" local="false" d1="1" d2="1" dynamics="any"/>
+  <param name="rt_9_10" type="label" local="false"/>
+  <param name="rt_10_10" type="label" local="false"/>
+  <param name="tau_10" type="label" local="false"/>
+  <param name="tt_10" type="label" local="false"/>
+  <location id="1" name="s1">
+   <flow>p10_x&apos;==1 &amp; p10_y&apos;==1 &amp; p10_z&apos;==1 &amp; t&apos;==1</flow>
+  </location>
+  <location id="2" name="s2">
+   <flow>p10_x&apos;==1 &amp; p10_y&apos;==1 &amp; p10_z&apos;==1 &amp; t&apos;==1</flow>
+  </location>
+  <location id="3" name="s3">
+   <flow>p10_x&apos;==1 &amp; p10_y&apos;==1 &amp; p10_z&apos;==1&amp; t&apos;==1</flow>
+  </location>
+  <location id="4" name="s4">
+   <flow>p10_x&apos;==1 &amp; p10_y&apos;==1 &amp; p10_z&apos;==1&amp; t&apos;==1</flow>
+  </location>
+  <location id="5" name="s5">
+   <flow>p10_x&apos;==1 &amp; p10_y&apos;==1 &amp; p10_z&apos;==1&amp; t&apos;==1</flow>
+  </location>
+  <location id="6" name="s6">
+   <flow>p10_x&apos;==1 &amp; p10_y&apos;==1 &amp; p10_z&apos;==1&amp; t&apos;==1</flow>
+  </location>
+  <transition source="1" target="2">
+   <label>rt_9_10</label>
+   <guard>p10_x&lt;=2</guard>
+   <assignment>p10_x:=0</assignment>
+  </transition>
+  <transition source="2" target="3">
+   <label>tau_10</label>
+   <guard>p10_x==20&amp;p10_z&lt;=620</guard>
+  </transition>
+  <transition source="2" target="4">
+   <label>rt_10_10</label>
+   <guard>p10_x==20&amp;p10_z&gt;=620</guard>
+  </transition>
+  <transition source="3" target="4">
+   <label>rt_10_10</label>
+   <guard>p10_z&lt;=620</guard>
+  </transition>
+  <transition source="4" target="5">
+   <label>tt_10</label>
+   <assignment>p10_x:=0&amp;p10_z:=0</assignment>
+  </transition>
+  <transition source="5" target="1">
+   <label>rt_10_10</label>
+   <guard>p10_x==20&amp;p10_y&gt;=620</guard>
+  </transition>
+  <transition source="5" target="6">
+   <label>tau_10</label>
+   <guard>p10_x==20&amp;p10_y&lt;=620</guard>
+  </transition>
+  <transition source="6" target="1">
+   <label>rt_10_10</label>
+   <guard>p10_y&lt;=620</guard>
+   <assignment>p10_x:=0</assignment>
+  </transition>
+ </component>
+</sspaceex>

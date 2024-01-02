@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+
+  <component id="SensorType">
+    <param name="lost_packet_time" type="real" local="false" d1="1" d2="1" dynamics="const" />
+    <param name="y" type="real" local="true" d1="1" d2="1" dynamics="any" />
+    <param name="request_evt" type="label" local="false" />
+    <param name="read_evt" type="label" local="false" />
+    <param name="send_evt" type="label" local="false" />
+    <param name="ack_evt" type="label" local="false" />
+    <location id="1" name="done" x="257.0" y="127.0">
+      <invariant>y &lt;= 1</invariant>
+      <flow>y' == 1</flow>
+    </location>
+    <location id="2" name="read" x="509.0" y="133.0">
+      <flow>y' == 0</flow>
+    </location>
+    <location id="3" name="wait" x="515.0" y="291.0">
+      <invariant>y &lt;= lost_packet_time</invariant>
+      <flow>y' == 1</flow>
+    </location>
+    <location id="4" name="send" x="258.0" y="289.0">
+      <flow>y' == 0</flow>
+    </location>
+    <transition source="1" target="2">
+      <label>request_evt</label>
+      <guard>y &gt;= 1</guard>
+      <labelposition x="-21.0" y="-49.0" />
+    </transition>
+    <transition source="2" target="3">
+      <label>read_evt</label>
+      <assignment>y = 0</assignment>
+      <labelposition x="11.0" y="-16.0" />
+      <middlepoint x="573.0" y="210.0" />
+    </transition>
+    <transition source="3" target="4">
+      <label>send_evt</label>
+      <labelposition x="0.0" y="0.0" />
+    </transition>
+    <transition source="4" target="1">
+      <label>ack_evt</label>
+      <assignment>y = 0</assignment>
+      <labelposition x="0.0" y="-15.0" />
+    </transition>
+    <transition source="3" target="2">
+      <label>request_evt</label>
+      <guard>y &gt;= lost_packet_time</guard>
+      <labelposition x="-57.0" y="-20.0" />
+      <middlepoint x="431.0" y="211.0" />
+    </transition>
+  </component>
+
+  <component id="SchedulerType">
+    <param name="wait1" type="real" local="true" d1="1" d2="1" dynamics="any" />
+<param name="wait2" type="real" local="true" d1="1" d2="1" dynamics="any" />
+<param name="wait3" type="real" local="true" d1="1" d2="1" dynamics="any" />
+     <param name="x1" type="real" local="true" d1="1" d2="1" dynamics="any" />
+ <param name="x2" type="real" local="true" d1="1" d2="1" dynamics="any" />
+ <param name="x3" type="real" local="true" d1="1" d2="1" dynamics="any" />
+
+    <param name="read_1" type="label" local="false" />
+    <param name="request_1" type="label" local="false" />
+<param name="read_2" type="label" local="false" />
+    <param name="request_2" type="label" local="false" />
+<param name="read_3" type="label" local="false" />
+    <param name="request_3" type="label" local="false" />
+
+    <location id="1" name="idle" x="361.0" y="178.0">
+    <flow>x1' == 0 &amp; x2' == 0 &amp; x3' == 0 &amp; wait1' == 0 &amp; wait2' == 0 &amp; wait3' == 0</flow>
+    </location>
+        <location id="2" name="loc_sensor_1" x="161.0" y="372.0">
+      <invariant>x1 &lt;= 4</invariant>
+      <flow>x2' == 0 &amp; x3' == 0 &amp; x1' == 1 &amp; wait1' == 0 &amp; wait2' == 0 &amp; wait3' == 0</flow>
+    </location>
+    <location id="3" name="loc_sensor_2" x="161.0" y="372.0">
+      <invariant>x2 &lt;= 8</invariant>
+      <flow>x1' == 0 &amp; x3' == 0 &amp; x2' == 1 &amp; wait1' == 0 &amp; wait2' == 0 &amp; wait3' == 0</flow>
+    </location>
+    <location id="4" name="loc_sensor_3" x="161.0" y="372.0">
+      <invariant>x3 &lt;= 12</invariant>
+      <flow>x1' == 0 &amp; x2' == 0 &amp; x3' == 1 &amp; wait1' == 0 &amp; wait2' == 0 &amp; wait3' == 0</flow>
+    </location>
+
+    
+    <transition source="1" target="2">
+      <label>request_1</label>
+      <assignment>x1 = 0</assignment>
+      <labelposition x="0.0" y="0.0" />
+      <middlepoint x="209.0" y="212.0" />
+    </transition>
+
+
+    <transition source="1" target="3">
+      <label>request_2</label>
+      <assignment>x2 = 0</assignment>
+      <labelposition x="0.0" y="0.0" />
+      <middlepoint x="209.0" y="212.0" />
+    </transition>
+
+
+    <transition source="1" target="4">
+      <label>request_3</label>
+      <assignment>x3 = 0</assignment>
+      <labelposition x="0.0" y="0.0" />
+      <middlepoint x="209.0" y="212.0" />
+    </transition>
+
+    
+
+    <transition source="2" target="1">
+      <label>read_1</label>
+      <guard>x1 &gt;= 1 * 0.3125 &amp; wait1 == 0 &amp; wait2 == 0 &amp; wait3 == 0</guard>
+      <labelposition x="16.0" y="0.0" />
+      <middlepoint x="301.0" y="281.0" />
+    </transition>
+
+
+    <transition source="3" target="1">
+      <label>read_2</label>
+      <guard>x2 &gt;= 2 * 0.3125 &amp; wait1 == 0 &amp; wait2 == 0 &amp; wait3 == 0</guard>
+      <labelposition x="16.0" y="0.0" />
+      <middlepoint x="301.0" y="281.0" />
+    </transition>
+
+
+    <transition source="4" target="1">
+      <label>read_3</label>
+      <guard>x3 &gt;= 3 * 0.3125 &amp; wait1 == 0 &amp; wait2 == 0 &amp; wait3 == 0</guard>
+      <labelposition x="16.0" y="0.0" />
+      <middlepoint x="301.0" y="281.0" />
+    </transition>
+
+    
+<!-- wait -->
+    <transition source="3" target="3">
+      <label>request_1</label>
+      <assignment>wait1 = 1</assignment>
+    </transition>
+
+<!-- wait -->
+    <transition source="4" target="4">
+      <label>request_1</label>
+      <assignment>wait1 = 1</assignment>
+    </transition>
+
+<!-- wait -->
+    <transition source="4" target="4">
+      <label>request_2</label>
+      <assignment>wait2 = 1</assignment>
+    </transition>
+
+    
+<!-- preemption -->
+    <transition source="2" target="3">
+      <label>request_2</label>
+      <assignment>wait1 = 1 &amp; x2 = 0</assignment>
+      <labelposition x="0.0" y="0.0" />
+      <middlepoint x="371.5" y="464.5" />
+    </transition>
+
+<!-- preemption -->
+    <transition source="2" target="4">
+      <label>request_3</label>
+      <assignment>wait1 = 1 &amp; x3 = 0</assignment>
+      <labelposition x="0.0" y="0.0" />
+      <middlepoint x="371.5" y="464.5" />
+    </transition>
+
+<!-- preemption -->
+    <transition source="3" target="4">
+      <label>request_3</label>
+      <assignment>wait2 = 2 &amp; x3 = 0</assignment>
+      <labelposition x="0.0" y="0.0" />
+      <middlepoint x="371.5" y="464.5" />
+    </transition>
+
+    
+<!-- giveback -->
+    <transition source="3" target="2">
+      <label>read_2</label>
+      <guard>x2 &gt;= (2*0.3125) &amp; wait1 == 1  </guard>
+      <assignment>wait1 = 0</assignment>
+      <labelposition x="-23.0" y="-52.0" />
+    </transition>
+
+<!-- giveback -->
+    <transition source="4" target="2">
+      <label>read_3</label>
+      <guard>x3 &gt;= (3*0.3125) &amp; wait1 == 1  &amp; wait2 == 0 </guard>
+      <assignment>wait1 = 0</assignment>
+      <labelposition x="-23.0" y="-52.0" />
+    </transition>
+
+<!-- giveback -->
+    <transition source="4" target="3">
+      <label>read_3</label>
+      <guard>x3 &gt;= (3*0.3125) &amp; wait2 == 1  </guard>
+      <assignment>wait2 = 0</assignment>
+      <labelposition x="-23.0" y="-52.0" />
+    </transition>
+
+  </component>
+
+
+  <component id="ControllerType">
+    <param name="z" type="real" local="true" d1="1" d2="1" dynamics="any" />
+    
+    <param name="received1" type="real" local="true" d1="1" d2="1" dynamics="any" />
+    <param name="send_1" type="label" local="false" />
+    <param name="ack_1" type="label" local="false" />
+
+    <param name="received2" type="real" local="true" d1="1" d2="1" dynamics="any" />
+    <param name="send_2" type="label" local="false" />
+    <param name="ack_2" type="label" local="false" />
+
+    <param name="received3" type="real" local="true" d1="1" d2="1" dynamics="any" />
+    <param name="send_3" type="label" local="false" />
+    <param name="ack_3" type="label" local="false" />
+
+    <location id="1" name="rest" x="631.0" y="171.0">
+      <flow>z' == 0 &amp; received1'==0 &amp; received2'==0 &amp; received3'==0</flow>
+    </location>
+    <location id="2" name="rec" x="293.0" y="170.0">
+      <invariant>z &lt;= 1</invariant>
+      <flow>z' == 1 &amp; received1'==0 &amp; received2'==0 &amp; received3'==0</flow>
+    </location>
+    <location id="3" name="wait" x="291.0" y="442.0">
+      <invariant>z &lt;= 1</invariant>
+      <flow>z' == 1 &amp; received1'==0 &amp; received2'==0 &amp; received3'==0</flow>
+    </location>
+    <location id="4" name="compute" x="654.0" y="446.0">
+      <invariant>z &lt;= 1</invariant>
+      <flow>z' == 1 &amp; received1'==0 &amp; received2'==0 &amp; received3'==0</flow>
+    </location>
+    <transition source="4" target="1">
+      <label>ack_1</label>
+      <guard>z &gt;= 1.25</guard>
+      <assignment>received1=1 &amp; received2=1 &amp; received3=1</assignment>
+      <labelposition x="0.0" y="0.0" />
+    </transition>
+    
+    <transition source="1" target="2">
+      <label>send_1</label>
+      <guard>received1 == 0</guard>
+      <assignment>z = 0 &amp; received1 = 1</assignment>
+      <labelposition x="-19.0" y="-7.0" />
+    </transition>
+    <transition source="3" target="2">
+      <label>send_1</label>
+      <guard>received1 == 0</guard>
+      <assignment>z = 0 &amp; received1 = 1</assignment>
+      <labelposition x="22.0" y="-7.0" />
+      <middlepoint x="331.0" y="320.5" />
+    </transition>
+    <transition source="2" target="3">
+      <label>ack_1</label>
+      <guard>z &gt;= 0.25 &amp; received1==0</guard>
+      <labelposition x="-61.0" y="-20.0" />
+      <middlepoint x="232.0" y="315.5" />
+    </transition>
+    <transition source="2" target="4">
+      <label>ack_1</label>
+      <guard>z &gt;= 0.25 &amp; received1==1 &amp; received2==1 &amp; received3==1</guard>
+      <assignment>z = 0</assignment>
+      <labelposition x="-21.0" y="-67.0" />
+    </transition>
+    <transition source="3" target="1">
+      <label>ack_1</label>
+      <guard>received1 + received2 + received3 &lt;= 3</guard>
+      <assignment>received1=0 &amp; received2=0 &amp; received3=0</assignment>
+      <labelposition x="-21.0" y="25.0" />
+      <middlepoint x="475.0" y="384.5" />
+    </transition>
+
+    <transition source="1" target="2">
+      <label>send_2</label>
+      <guard>received2 == 0</guard>
+      <assignment>z = 0 &amp; received2 = 1</assignment>
+      <labelposition x="-19.0" y="-7.0" />
+    </transition>
+    <transition source="3" target="2">
+      <label>send_2</label>
+      <guard>received2 == 0</guard>
+      <assignment>z = 0 &amp; received2 = 1</assignment>
+      <labelposition x="22.0" y="-7.0" />
+      <middlepoint x="331.0" y="320.5" />
+    </transition>
+    <transition source="2" target="3">
+      <label>ack_2</label>
+      <guard>z &gt;= 0.25 &amp; received1==0</guard>
+      <labelposition x="-61.0" y="-20.0" />
+      <middlepoint x="232.0" y="315.5" />
+    </transition>
+    <transition source="2" target="4">
+      <label>ack_2</label>
+      <guard>z &gt;= 0.25 &amp; received1==1 &amp; received2==1 &amp; received3==1</guard>
+      <assignment>z = 0</assignment>
+      <labelposition x="-21.0" y="-67.0" />
+    </transition>
+    <transition source="3" target="1">
+      <label>ack_2</label>
+      <guard>received1 + received2 + received3 &lt;= 3</guard>
+      <assignment>received1=0 &amp; received2=0 &amp; received3=0</assignment>
+      <labelposition x="-21.0" y="25.0" />
+      <middlepoint x="475.0" y="384.5" />
+    </transition>
+
+    <transition source="1" target="2">
+      <label>send_3</label>
+      <guard>received3 == 0</guard>
+      <assignment>z = 0 &amp; received3 = 1</assignment>
+      <labelposition x="-19.0" y="-7.0" />
+    </transition>
+    <transition source="3" target="2">
+      <label>send_3</label>
+      <guard>received3 == 0</guard>
+      <assignment>z = 0 &amp; received3 = 1</assignment>
+      <labelposition x="22.0" y="-7.0" />
+      <middlepoint x="331.0" y="320.5" />
+    </transition>
+    <transition source="2" target="3">
+      <label>ack_3</label>
+      <guard>z &gt;= 0.25 &amp; received1==0</guard>
+      <labelposition x="-61.0" y="-20.0" />
+      <middlepoint x="232.0" y="315.5" />
+    </transition>
+    <transition source="2" target="4">
+      <label>ack_3</label>
+      <guard>z &gt;= 0.25 &amp; received1==1 &amp; received2==1 &amp; received3==1</guard>
+      <assignment>z = 0</assignment>
+      <labelposition x="-21.0" y="-67.0" />
+    </transition>
+    <transition source="3" target="1">
+      <label>ack_3</label>
+      <guard>received1 + received2 + received3 &lt;= 3</guard>
+      <assignment>received1=0 &amp; received2=0 &amp; received3=0</assignment>
+      <labelposition x="-21.0" y="25.0" />
+      <middlepoint x="475.0" y="384.5" />
+    </transition>
+
+  </component>
+
+
+  <component id="sys">
+  
+    <param name="read_1" type="label" local="false" />
+    <param name="request_1" type="label" local="false" />
+    <param name="send_1" type="label" local="false" />
+    <param name="ack_1" type="label" local="false" />
+
+    <param name="read_2" type="label" local="false" />
+    <param name="request_2" type="label" local="false" />
+    <param name="send_2" type="label" local="false" />
+    <param name="ack_2" type="label" local="false" />
+
+    <param name="read_3" type="label" local="false" />
+    <param name="request_3" type="label" local="false" />
+    <param name="send_3" type="label" local="false" />
+    <param name="ack_3" type="label" local="false" />
+
+
+      <bind component="SensorType" as="sensor_1" x="449.0" y="207.0">
+      <map key="lost_packet_time">0</map>
+      <map key="request_evt">request_1</map>
+      <map key="read_evt">read_1</map>
+      <map key="send_evt">send_1</map>
+      <map key="ack_evt">ack_1</map>
+    </bind>
+    <bind component="SensorType" as="sensor_2" x="449.0" y="207.0">
+      <map key="lost_packet_time">4</map>
+      <map key="request_evt">request_2</map>
+      <map key="read_evt">read_2</map>
+      <map key="send_evt">send_2</map>
+      <map key="ack_evt">ack_2</map>
+    </bind>
+    <bind component="SensorType" as="sensor_3" x="449.0" y="207.0">
+      <map key="lost_packet_time">8</map>
+      <map key="request_evt">request_3</map>
+      <map key="read_evt">read_3</map>
+      <map key="send_evt">send_3</map>
+      <map key="ack_evt">ack_3</map>
+    </bind>
+    <bind component="SchedulerType" as="scheduler" x="463.0" y="415.0">
+            <map key="read_1">read_1</map>
+      <map key="request_1">request_1</map>
+      <map key="read_2">read_2</map>
+      <map key="request_2">request_2</map>
+      <map key="read_3">read_3</map>
+      <map key="request_3">request_3</map>
+
+    </bind>
+    <bind component="ControllerType" as="controller" x="471.0" y="586.0">
+      <map key="send_1">send_1</map>
+      <map key="ack_1">ack_1</map>
+      <map key="send_2">send_2</map>
+      <map key="ack_2">ack_2</map>
+      <map key="send_3">send_3</map>
+      <map key="ack_3">ack_3</map>
+
+    </bind>
+
+  </component>
+
+</sspaceex>

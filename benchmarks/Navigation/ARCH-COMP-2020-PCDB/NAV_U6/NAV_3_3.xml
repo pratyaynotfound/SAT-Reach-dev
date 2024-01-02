@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<sspaceex xmlns="http://www-verimag.imag.fr/xml-namespaces/sspaceex" version="0.2" math="SpaceEx">
+<component id="system">
+	<param name="t" type="real" local="false" d1="1" d2="1" dynamics="any" />
+	<param name="x1" type="real" local="false" d1="1" d2="1" dynamics="any"/>
+	<param name="x2" type="real" local="false" d1="1" d2="1" dynamics="any"/>
+	<param name="x3" type="real" local="false" d1="1" d2="1" dynamics="any"/>
+	<param name="xc1" type="real" local="false" d1="1" d2="1" dynamics="any"/>
+	<param name="xc2" type="real" local="false" d1="1" d2="1" dynamics="any"/>
+	<param name="d" type="label" local="false" />
+	<location id="1" name="L000">
+		<invariant> true  &amp; x1&gt;=0 &amp; x1&lt;=1 &amp; xc1&gt;=-0.6 &amp; xc1&lt;=0.6 &amp; x2&gt;=0 &amp; x2&lt;=1 &amp; x3&gt;=0 &amp; x3&lt;=1 </invariant>
+		<flow> t'==1 &amp; x1'==0.1 &amp; x2'==xc1 &amp; x3'==1.2</flow>
+	</location>
+	<location id="2" name="L001">
+		<invariant> true  &amp; x1&gt;=0 &amp; x1&lt;=1 &amp; x2&gt;=0 &amp; x2&lt;=1 &amp; x3&gt;=1 &amp; x3&lt;=2 </invariant>
+		<flow> t'==1 &amp;  x1'==0.1 &amp; x2'==0.1 &amp; x3'==1.3</flow>
+	</location>
+	<location id="3" name="L002">
+		<invariant> true  &amp; x1&gt;=0 &amp; x1&lt;=1 &amp; x2&gt;=0 &amp; x2&lt;=1 &amp; x3&gt;=2 &amp; x3&lt;=3 </invariant>
+		<flow> t'==1 &amp;  x1'==0.1 &amp; x2'==1.3 &amp; x3'==0.2</flow>
+	</location>
+	<location id="4" name="L010">
+		<invariant> true  &amp; x1&gt;=0 &amp; x1&lt;=1 &amp; x2&gt;=1 &amp; x2&lt;=2 &amp; x3&gt;=0 &amp; x3&lt;=1 </invariant>
+		<flow> t'==1 &amp;  x1'==0.1 &amp; x2'==-1.3 &amp; x3'==-0.2</flow>
+	</location>
+	<location id="5" name="L011">
+		<invariant> true  &amp; x1&gt;=0 &amp; x1&lt;=1 &amp; x2&gt;=1 &amp; x2&lt;=2 &amp; x3&gt;=1 &amp; x3&lt;=2 </invariant>
+		<flow> t'==1 &amp;  x1'==0.1 &amp; x2'==1.3 &amp; x3'==-0.2</flow>
+	</location>
+	<location id="6" name="L012">
+		<invariant> true  &amp; x1&gt;=0 &amp; x1&lt;=1 &amp; x2&gt;=1 &amp; x2&lt;=2 &amp; x3&gt;=2 &amp; x3&lt;=3 </invariant>
+		<flow> t'==1 &amp;  x1'==0.1 &amp; x2'==0.3 &amp; x3'==-1</flow>
+	</location>
+	<location id="7" name="L020">
+		<invariant> true  &amp; x1&gt;=0 &amp; x1&lt;=1 &amp; x2&gt;=2 &amp; x2&lt;=3 &amp; x3&gt;=0 &amp; x3&lt;=1 </invariant>
+		<flow> t'==1 &amp;  x1'==0.1 &amp; x2'==-1.3 &amp; x3'==-0.2</flow>
+	</location>
+	<location id="8" name="L021">
+		<invariant> true  &amp; x1&gt;=0 &amp; x1&lt;=1 &amp; x2&gt;=2 &amp; x2&lt;=3 &amp; x3&gt;=1 &amp; x3&lt;=2 </invariant>
+		<flow> t'==1 &amp;  x1'==0.1 &amp; x2'==1 &amp; x3'==-1.3</flow>
+	</location>
+	<location id="9" name="L022">
+		<invariant> true  &amp; x1&gt;=0 &amp; x1&lt;=1 &amp; x2&gt;=2 &amp; x2&lt;=3 &amp; x3&gt;=2 &amp; x3&lt;=3 </invariant>
+		<flow> t'==1 &amp;  x1'==0.1 &amp; x2'==1 &amp; x3'==1</flow>
+	</location>
+	<location id="10" name="L100">
+		<invariant> true  &amp; x1&gt;=1 &amp; x1&lt;=2 &amp; xc1&gt;=-0.6 &amp; xc1&lt;=0.6 &amp; x2&gt;=0 &amp; x2&lt;=1 &amp; x3&gt;=0 &amp; x3&lt;=1 </invariant>
+		<flow> t'==1 &amp;  x1'==0.1 &amp; x2'==xc1 &amp; x3'==1.2</flow>
+	</location>
+	<location id="11" name="L101">
+		<invariant> true  &amp; x1&gt;=1 &amp; x1&lt;=2 &amp; x2&gt;=0 &amp; x2&lt;=1 &amp; x3&gt;=1 &amp; x3&lt;=2 </invariant>
+		<flow> t'==1 &amp;  x1'==0.1 &amp; x2'==0.1 &amp; x3'==1.3</flow>
+	</location>
+	<location id="12" name="L102">
+		<invariant> true  &amp; x1&gt;=1 &amp; x1&lt;=2 &amp; x2&gt;=0 &amp; x2&lt;=1 &amp; x3&gt;=2 &amp; x3&lt;=3 </invariant>
+		<flow> t'==1 &amp;  x1'==0.1 &amp; x2'==1.3 &amp; x3'==0.2</flow>
+	</location>
+	<location id="13" name="L110">
+		<invariant> true  &amp; x1&gt;=1 &amp; x1&lt;=2 &amp; x2&gt;=1 &amp; x2&lt;=2 &amp; x3&gt;=0 &amp; x3&lt;=1 </invariant>
+		<flow> t'==1 &amp;  x1'==0.1 &amp; x2'==-1.3 &amp; x3'==-0.2</flow>
+	</location>
+	<location id="14" name="L111">
+		<invariant> true  &amp; x1&gt;=1 &amp; x1&lt;=2 &amp; x2&gt;=1 &amp; x2&lt;=2 &amp; x3&gt;=1 &amp; x3&lt;=2 </invariant>
+		<flow> t'==1 &amp;  x1'==0.1 &amp; x2'==1.3 &amp; x3'==-0.2</flow>
+	</location>
+	<location id="15" name="L112">
+		<invariant> true  &amp; x1&gt;=1 &amp; x1&lt;=2 &amp; x2&gt;=1 &amp; x2&lt;=2 &amp; x3&gt;=2 &amp; x3&lt;=3</invariant>
+		<flow> t'==1 &amp;  x1'==0.1 &amp; x2'==0.3 &amp; x3'==-1</flow>
+	</location>
+	<location id="16" name="L120">
+		<invariant> true  &amp; x1&gt;=1 &amp; x1&lt;=2 &amp; x2&gt;=2 &amp; x2&lt;=3 &amp; x3&gt;=0 &amp; x3&lt;=1 </invariant>
+		<flow> t'==1 &amp;  x1'==0.1 &amp; x2'==-1.3 &amp; x3'==-0.2</flow>
+	</location>
+	<location id="17" name="L121">
+		<invariant> true  &amp; x1&gt;=1 &amp; x1&lt;=2 &amp; x2&gt;=2 &amp; x2&lt;=3 &amp; x3&gt;=1 &amp; x3&lt;=2 </invariant>
+		<flow> t'==1 &amp;  x1'==0.1 &amp; x2'==1 &amp; x3'==-1.3</flow>
+	</location>
+	<location id="18" name="L122">
+		<invariant> true  &amp; x1&gt;=1 &amp; x1&lt;=2 &amp; x2&gt;=2 &amp; x2&lt;=3 &amp; x3&gt;=2 &amp; x3&lt;=3 </invariant>
+		<flow> t'==1 &amp;  x1'==0.1 &amp; x2'==1 &amp; x3'==1</flow>
+	</location>
+	<location id="19" name="L200">
+		<invariant> true  &amp; x1&gt;=1 &amp; x1&lt;=2 &amp; xc1&gt;=-0.6 &amp; xc1&lt;=0.6 &amp; xc2&gt;=-0.1 &amp; xc2&lt;=0.1 &amp; x2&gt;=0 &amp; x2&lt;=1 &amp; x3&gt;=0 &amp; x3&lt;=1 </invariant>
+		<flow> t'==1 &amp; x1'==xc2 &amp; x2'==xc1 &amp; x3'==1.2</flow>
+	</location>
+	<location id="20" name="L201">
+		<invariant> true  &amp; x1&gt;=1 &amp; x1&lt;=2 &amp; xc2&gt;=-0.1 &amp; xc2&lt;=0.1 &amp; x2&gt;=0 &amp; x2&lt;=1 &amp; x3&gt;=1 &amp; x3&lt;=2 </invariant>
+		<flow> t'==1 &amp; x1'==xc2 &amp; x2'==0.1 &amp; x3'==1.3</flow>
+	</location>
+	<location id="21" name="L202">
+		<invariant> true  &amp; x1&gt;=1 &amp; x1&lt;=2 &amp; xc2&gt;=-0.1 &amp; xc2&lt;=0.1 &amp; x2&gt;=0 &amp; x2&lt;=1 &amp; x3&gt;=2 &amp; x3&lt;=3 </invariant>
+		<flow> t'==1 &amp; x1'==xc2 &amp; x2'==1.3 &amp; x3'==0.2</flow>
+	</location>
+	<location id="22" name="L210">
+		<invariant> true  &amp; x1&gt;=1 &amp; x1&lt;=2 &amp; xc2&gt;=-0.1 &amp; xc2&lt;=0.1 &amp; x2&gt;=1 &amp; x2&lt;=2 &amp; x3&gt;=0 &amp; x3&lt;=1 </invariant>
+		<flow> t'==1 &amp; x1'==xc2 &amp; x2'==-1.3 &amp; x3'==-0.2</flow>
+	</location>
+	<location id="23" name="L211">
+		<invariant> true  &amp; x1&gt;=1 &amp; x1&lt;=2 &amp; xc2&gt;=-0.1 &amp; xc2&lt;=0.1 &amp; x2&gt;=1 &amp; x2&lt;=2 &amp; x3&gt;=1 &amp; x3&lt;=2 </invariant>
+		<flow> t'==1 &amp; x1'==xc2 &amp; x2'==1.3 &amp; x3'==-0.2</flow>
+	</location>
+	<location id="24" name="L212">
+		<invariant> true  &amp; x1&gt;=1 &amp; x1&lt;=2 &amp; xc2&gt;=-0.1 &amp; xc2&lt;=0.1 &amp; x2&gt;=1 &amp; x2&lt;=2 &amp; x3&gt;=2 &amp; x3&lt;=3 </invariant>
+		<flow> t'==1 &amp; x1'==xc2 &amp; x2'==0.3 &amp; x3'==-1</flow>
+	</location>
+	<location id="25" name="L220">
+		<invariant> true  &amp; x1&gt;=1 &amp; x1&lt;=2 &amp; xc2&gt;=-0.1 &amp; xc2&lt;=0.1 &amp; x2&gt;=2 &amp; x2&lt;=3 &amp; x3&gt;=0 &amp; x3&lt;=1</invariant>
+		<flow> t'==1 &amp; x1'==xc2 &amp; x2'==-1.3 &amp; x3'==-0.2</flow>
+	</location>
+	<location id="26" name="L221">
+		<invariant> true  &amp; x1&gt;=1 &amp; x1&lt;=2 &amp; xc2&gt;=-0.1 &amp; xc2&lt;=0.1 &amp; x2&gt;=2 &amp; x2&lt;=3 &amp; x3&gt;=1 &amp; x3&lt;=2 </invariant>
+		<flow> t'==1 &amp; x1'==xc2 &amp; x2'==1 &amp; x3'==-1.3</flow>
+	</location>
+	<location id="27" name="L222">
+		<invariant> true  &amp; x1&gt;=1 &amp; x1&lt;=2 &amp; xc2&gt;=-0.1 &amp; xc2&lt;=0.1 &amp; x2&gt;=2 &amp; x2&lt;=3 &amp; x3&gt;=2 &amp; x3&lt;=3 </invariant>
+		<flow> t'==1 &amp; x1'==xc2 &amp; x2'==1 &amp; x3'==1</flow>
+	</location>
+	
+	<transition source="1" target="10">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="1" target="4">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="1" target="2">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="2" target="11">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="2" target="5">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="2" target="1">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="2" target="3">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="3" target="12">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="3" target="6">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="3" target="2">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="4" target="13">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="4" target="1">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="4" target="7">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="4" target="5">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="5" target="14">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="5" target="2">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="5" target="8">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="5" target="4">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="5" target="6">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="6" target="15">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="6" target="3">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="6" target="9">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="6" target="5">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="7" target="16">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="7" target="4">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="7" target="8">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="8" target="17">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="8" target="5">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="8" target="7">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="8" target="9">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="9" target="18">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="9" target="6">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="9" target="8">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="10" target="1">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="10" target="19">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="10" target="13">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="10" target="11">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="11" target="2">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="11" target="20">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="11" target="14">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="11" target="10">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="11" target="12">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="12" target="3">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="12" target="21">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="12" target="15">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="12" target="11">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="13" target="4">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="13" target="22">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="13" target="10">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="13" target="16">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="13" target="14">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="14" target="5">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="14" target="23">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="14" target="11">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="14" target="17">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="14" target="13">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="14" target="15">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="15" target="6">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="15" target="24">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="15" target="12">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="15" target="18">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="15" target="14">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="16" target="7">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="16" target="25">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="16" target="13">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="16" target="17">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="17" target="8">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="17" target="26">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="17" target="14">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="17" target="16">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="17" target="18">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="18" target="9">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="18" target="27">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="18" target="15">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="18" target="17">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="19" target="10">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="19" target="22">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="19" target="20">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="20" target="11">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="20" target="23">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="20" target="19">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="20" target="21">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="21" target="12">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="21" target="24">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="21" target="20">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="22" target="13">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="22" target="19">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="22" target="25">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="22" target="23">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="23" target="14">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="23" target="20">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="23" target="26">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="23" target="22">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="23" target="24">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="24" target="15">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="24" target="21">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="24" target="27">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="24" target="23">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="25" target="16">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="25" target="22">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="25" target="26">
+		<label>d</label>
+		<guard> t >=0 &amp; x3==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="26" target="17">
+		<label>d</label>
+		<guard> t >=0 &amp; x1==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="26" target="23">
+		<label>d</label>
+		<guard> t >=0 &amp; x2==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="26" target="25">
+		<label>d</label>
+		<guard> t >= 0 &amp; x3==1 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="26" target="27">
+		<label>d</label>
+		<guard> t >= 0 &amp; x3==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="27" target="18">
+		<label>d</label>
+		<guard> t >= 0 &amp; x1==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="27" target="24">
+		<label>d</label>
+		<guard> t >= 0 &amp; x2==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+	<transition source="27" target="26">
+		<label>d</label>
+		<guard> t >= 0 &amp; x3==2 </guard>
+		<assignment> t := 0 </assignment>
+	</transition>
+</component>
+</sspaceex>
